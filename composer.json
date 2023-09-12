@@ -1,0 +1,21 @@
+{
+    "name": "microframe/framework",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Microframe\\Framework\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Daniel Winning",
+            "email": "daniel@winningsoftware.co.uk"
+        }
+    ],
+    "require": {
+        "latte/latte": "^3.0",
+        "tracy/tracy": "^2.10",
+        "dannyxcii/routing-component": "^1.2",
+        "dannyxcii/dependency-injection-component": "^1.1"
+    }
+}
