@@ -1,5 +1,5 @@
 {
-    "name": "microframe/framework",
+    "name": "microframe/framework-component",
     "type": "library",
     "autoload": {
         "psr-4": {
