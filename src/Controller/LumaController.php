@@ -15,7 +15,7 @@ class LumaController
     {
         $this->templateEngine = new Engine();
         $this->templateEngine->addExtension(new TracyExtension());
-        $this->templateEngine->setTempDirectory(sprintf('%s/cache/views', dirname(__DIR__, 4)));
+        $this->templateEngine->setTempDirectory(sprintf('%s/cache/views', dirname(__DIR__, 5)));
     }
 
     /**

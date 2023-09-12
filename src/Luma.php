@@ -36,8 +36,8 @@ class Luma
      */
     private function load(): void
     {
-        $this->dependencyManager->loadDependenciesFromFile(sprintf('%s/config/services.yaml', dirname(__DIR__, 3)));
-        $this->router->loadRoutesFromFile(sprintf('%s/config/routes.yaml', dirname(__DIR__, 3)));
+        $this->dependencyManager->loadDependenciesFromFile(sprintf('%s/config/services.yaml', dirname(__DIR__, 4)));
+        $this->router->loadRoutesFromFile(sprintf('%s/config/routes.yaml', dirname(__DIR__, 4)));
     }
 
     /**
