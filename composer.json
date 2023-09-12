@@ -1,5 +1,5 @@
 {
-    "name": "microframe/framework-component",
+    "name": "lumax/framework-component",
     "type": "library",
     "autoload": {
         "psr-4": {
