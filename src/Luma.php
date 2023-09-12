@@ -1,6 +1,6 @@
 <?php
 
-namespace Microframe\Framework;
+namespace Luma\Framework;
 
 use DannyXCII\DependencyInjectionComponent\DependencyContainer;
 use DannyXCII\DependencyInjectionComponent\DependencyManager;
@@ -10,7 +10,7 @@ use DannyXCII\HttpComponent\StreamBuilder;
 use DannyXCII\HttpComponent\Web\WebServerUri;
 use DannyXCII\RoutingComponent\Router;
 
-class Microframe
+class Luma
 {
     private DependencyContainer $container;
     private DependencyManager $dependencyManager;

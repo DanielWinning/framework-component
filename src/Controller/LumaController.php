@@ -1,13 +1,13 @@
 <?php
 
-namespace Microframe\Framework\Controller;
+namespace Luma\Framework\Controller;
 
 use DannyXCII\HttpComponent\Response;
 use DannyXCII\HttpComponent\StreamBuilder;
 use Latte\Bridges\Tracy\TracyExtension;
 use Latte\Engine;
 
-class MicroController
+class LumaController
 {
     private Engine $templateEngine;
 
