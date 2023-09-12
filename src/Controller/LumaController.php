@@ -47,7 +47,7 @@ class LumaController
         $templatePath = str_contains($templatePath, '.latte')
             ? $templatePath
             : sprintf('%s.latte', $templatePath);
-        $templatePath = sprintf('%s/%s', dirname(__DIR__, 4), $templatePath);
+        $templatePath = sprintf('%s/views/%s', dirname(__DIR__, 5), $templatePath);
 
         return $this->respond($this->templateEngine->renderToString($templatePath, $data));
     }
