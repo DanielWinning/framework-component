@@ -15,18 +15,19 @@ class Luma
     private DependencyContainer $container;
     private DependencyManager $dependencyManager;
     private Router $router;
+    private string $configDir;
 
     /**
      * @throws \ReflectionException|NotFoundException|\Throwable
      */
-    public function __construct()
+    public function __construct(string $configDir)
     {
         $this->container = new DependencyContainer();
         $this->dependencyManager = new DependencyManager($this->container);
         $this->router = new Router($this->container);
+        $this->configDir = $configDir;
 
         $this->load();
-        $this->run();
     }
 
     /**
@@ -36,15 +37,16 @@ class Luma
      */
     private function load(): void
     {
-        $this->dependencyManager->loadDependenciesFromFile(sprintf('%s/config/services.yaml', dirname(__DIR__, 4)));
-        $this->router->loadRoutesFromFile(sprintf('%s/config/routes.yaml', dirname(__DIR__, 4)));
+        $this->dependencyManager->loadDependenciesFromFile(sprintf('%s/services.yaml', $this->configDir));
+        $this->router->loadRoutesFromFile(sprintf('%s/routes.yaml', $this->configDir));
     }
 
     /**
      * @return void
+     *
      * @throws \ReflectionException|\Throwable
      */
-    private function run(): void
+    public function run(): void
     {
         echo $this->router->handleRequest(
             new Request(
