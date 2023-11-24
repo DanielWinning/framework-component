@@ -53,7 +53,6 @@ class LumaTest extends TestCase
      */
     public function testItRuns(): void
     {
-        // Arrange
         $_SERVER['HTTPS'] = 'on';
         $_SERVER['HTTP_HOST'] = 'localhost';
         $_SERVER['REQUEST_URI'] = '/';
@@ -63,7 +62,6 @@ class LumaTest extends TestCase
             'Content-Type' => 'application/json',
         ];
 
-        // Create a mock Request object with the necessary data
         $request = $this->createMock(Request::class);
         $request->method('getMethod')->willReturn($_SERVER['REQUEST_METHOD']);
         $request->method('getUri')->willReturn(WebServerUri::generate());
