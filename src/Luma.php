@@ -6,8 +6,6 @@ use DannyXCII\DependencyInjectionComponent\DependencyContainer;
 use DannyXCII\DependencyInjectionComponent\DependencyManager;
 use DannyXCII\DependencyInjectionComponent\Exception\NotFoundException;
 use DannyXCII\HttpComponent\Request;
-use DannyXCII\HttpComponent\StreamBuilder;
-use DannyXCII\HttpComponent\Web\WebServerUri;
 use DannyXCII\RoutingComponent\Router;
 
 class Luma
@@ -18,7 +16,7 @@ class Luma
     private string $configDir;
 
     /**
-     * @throws \ReflectionException|NotFoundException|\Throwable
+     * @throws NotFoundException|\Throwable
      */
     public function __construct(string $configDir)
     {
@@ -37,24 +35,23 @@ class Luma
      */
     private function load(): void
     {
-        $this->dependencyManager->loadDependenciesFromFile(sprintf('%s/services.yaml', $this->configDir));
-        $this->router->loadRoutesFromFile(sprintf('%s/routes.yaml', $this->configDir));
+        $this->dependencyManager
+            ->loadDependenciesFromFile(sprintf('%s/services.yaml', $this->configDir));
+        $this->router
+            ->loadRoutesFromFile(sprintf('%s/routes.yaml', $this->configDir));
     }
 
     /**
+     * @param Request $request
+     *
      * @return void
      *
      * @throws \ReflectionException|\Throwable
      */
-    public function run(): void
+    public function run(Request $request): void
     {
-        echo $this->router->handleRequest(
-            new Request(
-                $_SERVER['REQUEST_METHOD'],
-                WebServerUri::generate(),
-                getallheaders(),
-                StreamBuilder::build('')
-            )
-        )->getBody()->getContents();
+        $response = $this->router->handleRequest($request);
+
+        echo $response->getBody()->getContents();
     }
 }
