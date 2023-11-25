@@ -1,9 +1,9 @@
 <?php
 
-use DannyXCII\DependencyInjectionComponent\Exception\NotFoundException;
-use DannyXCII\HttpComponent\Request;
-use DannyXCII\HttpComponent\StreamBuilder;
-use DannyXCII\HttpComponent\Web\WebServerUri;
+use Luma\DependencyInjectionComponent\Exception\NotFoundException;
+use Luma\HttpComponent\Request;
+use Luma\HttpComponent\StreamBuilder;
+use Luma\HttpComponent\Web\WebServerUri;
 use Luma\Framework\Luma;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Yaml\Yaml;

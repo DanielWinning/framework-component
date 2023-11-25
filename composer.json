@@ -15,14 +15,14 @@
     "require": {
         "latte/latte": "^3.0",
         "tracy/tracy": "^2.10",
-        "dannyxcii/routing-component": "^1.3",
-        "dannyxcii/dependency-injection-component": "^1.1"
+        "lumax/routing-component": "^1.3",
+        "lumax/dependency-injection-component": "^1.1"
     },
     "scripts": {
         "test": "php -d xdebug.mode=coverage ./vendor/bin/phpunit --testdox --colors=always --coverage-html coverage --coverage-clover coverage/coverage.xml --testdox-html coverage/testdox.html && npx badger --phpunit ./coverage/coverage.xml && npx badger --version ./composer.json && npx badger --license ./composer.json"
     },
     "license": "GPL-3.0-or-later",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "require-dev": {
         "phpunit/phpunit": "^10.4"
     }

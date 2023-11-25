@@ -2,8 +2,8 @@
 
 namespace Luma\Framework\Controller;
 
-use DannyXCII\HttpComponent\Response;
-use DannyXCII\HttpComponent\StreamBuilder;
+use Luma\HttpComponent\Response;
+use Luma\HttpComponent\StreamBuilder;
 use Latte\Bridges\Tracy\TracyExtension;
 use Latte\Engine;
 

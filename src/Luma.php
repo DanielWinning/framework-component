@@ -2,11 +2,11 @@
 
 namespace Luma\Framework;
 
-use DannyXCII\DependencyInjectionComponent\DependencyContainer;
-use DannyXCII\DependencyInjectionComponent\DependencyManager;
-use DannyXCII\DependencyInjectionComponent\Exception\NotFoundException;
-use DannyXCII\HttpComponent\Request;
-use DannyXCII\RoutingComponent\Router;
+use Luma\DependencyInjectionComponent\DependencyContainer;
+use Luma\DependencyInjectionComponent\DependencyManager;
+use Luma\DependencyInjectionComponent\Exception\NotFoundException;
+use Luma\HttpComponent\Request;
+use Luma\RoutingComponent\Router;
 
 class Luma
 {
