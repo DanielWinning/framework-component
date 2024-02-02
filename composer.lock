@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1897e3059403c79efdf3be6163555b62",
+    "content-hash": "a98675329324c528ec5b29886a6acaf4",
     "packages": [
         {
             "name": "graham-campbell/result-type",
@@ -70,16 +70,16 @@
         },
         {
             "name": "latte/latte",
-            "version": "v3.0.12",
+            "version": "v3.0.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/latte.git",
-                "reference": "af6fc60e7a28cbc1717b8185ef04d36fd69f8711"
+                "reference": "462444d669809528b6f6ce191b616d747c9b4bfc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/latte/zipball/af6fc60e7a28cbc1717b8185ef04d36fd69f8711",
-                "reference": "af6fc60e7a28cbc1717b8185ef04d36fd69f8711",
+                "url": "https://api.github.com/repos/nette/latte/zipball/462444d669809528b6f6ce191b616d747c9b4bfc",
+                "reference": "462444d669809528b6f6ce191b616d747c9b4bfc",
                 "shasum": ""
             },
             "require": {
@@ -149,22 +149,22 @@
             ],
             "support": {
                 "issues": "https://github.com/nette/latte/issues",
-                "source": "https://github.com/nette/latte/tree/v3.0.12"
+                "source": "https://github.com/nette/latte/tree/v3.0.13"
             },
-            "time": "2023-11-13T11:31:09+00:00"
+            "time": "2024-01-09T13:54:57+00:00"
         },
         {
             "name": "lumax/dependency-injection-component",
-            "version": "1.1.8",
+            "version": "1.1.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/DanielWinning/dependency-injection-component.git",
-                "reference": "999abfdc381911d264ba04d6f4fd032ac745f0f7"
+                "reference": "ade02870738ce6024a85753101106547b1b42164"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/DanielWinning/dependency-injection-component/zipball/999abfdc381911d264ba04d6f4fd032ac745f0f7",
-                "reference": "999abfdc381911d264ba04d6f4fd032ac745f0f7",
+                "url": "https://api.github.com/repos/DanielWinning/dependency-injection-component/zipball/ade02870738ce6024a85753101106547b1b42164",
+                "reference": "ade02870738ce6024a85753101106547b1b42164",
                 "shasum": ""
             },
             "require": {
@@ -193,9 +193,9 @@
             "description": "A Dependency Injection Package",
             "support": {
                 "issues": "https://github.com/DanielWinning/dependency-injection-component/issues",
-                "source": "https://github.com/DanielWinning/dependency-injection-component/tree/1.1.8"
+                "source": "https://github.com/DanielWinning/dependency-injection-component/tree/1.1.10"
             },
-            "time": "2023-12-23T12:13:50+00:00"
+            "time": "2024-01-30T02:40:27+00:00"
         },
         {
             "name": "lumax/http-component",
@@ -244,16 +244,16 @@
         },
         {
             "name": "lumax/routing-component",
-            "version": "1.3.4",
+            "version": "1.3.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/DanielWinning/routing-component.git",
-                "reference": "6cfdc3165eec9dd067bccff12cf81082c68962db"
+                "reference": "6e731dc83e36817556f6537273de5d919f8dd8df"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/DanielWinning/routing-component/zipball/6cfdc3165eec9dd067bccff12cf81082c68962db",
-                "reference": "6cfdc3165eec9dd067bccff12cf81082c68962db",
+                "url": "https://api.github.com/repos/DanielWinning/routing-component/zipball/6e731dc83e36817556f6537273de5d919f8dd8df",
+                "reference": "6e731dc83e36817556f6537273de5d919f8dd8df",
                 "shasum": ""
             },
             "require": {
@@ -268,8 +268,7 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Luma\\RoutingComponent\\": "src/",
-                    "Luma\\RoutingComponentTests\\": "tests/"
+                    "Luma\\RoutingComponent\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -285,9 +284,9 @@
             "description": "A dynamic PHP Routing Component.",
             "support": {
                 "issues": "https://github.com/DanielWinning/routing-component/issues",
-                "source": "https://github.com/DanielWinning/routing-component/tree/1.3.4"
+                "source": "https://github.com/DanielWinning/routing-component/tree/1.3.7"
             },
-            "time": "2023-12-02T15:32:50+00:00"
+            "time": "2024-02-01T16:21:24+00:00"
         },
         {
             "name": "phpoption/phpoption",
@@ -839,16 +838,16 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v6.4.0",
+            "version": "v6.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "4f9237a1bb42455d609e6687d2613dde5b41a587"
+                "reference": "d75715985f0f94f978e3a8fa42533e10db921b90"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/4f9237a1bb42455d609e6687d2613dde5b41a587",
-                "reference": "4f9237a1bb42455d609e6687d2613dde5b41a587",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/d75715985f0f94f978e3a8fa42533e10db921b90",
+                "reference": "d75715985f0f94f978e3a8fa42533e10db921b90",
                 "shasum": ""
             },
             "require": {
@@ -891,7 +890,7 @@
             "description": "Loads and dumps YAML files",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/yaml/tree/v6.4.0"
+                "source": "https://github.com/symfony/yaml/tree/v6.4.3"
             },
             "funding": [
                 {
@@ -907,7 +906,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-11-06T11:00:25+00:00"
+            "time": "2024-01-23T14:51:35+00:00"
         },
         {
             "name": "tracy/tracy",
@@ -1131,25 +1130,27 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v4.18.0",
+            "version": "v5.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "1bcbb2179f97633e98bbbc87044ee2611c7d7999"
+                "reference": "4a21235f7e56e713259a6f76bf4b5ea08502b9dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/1bcbb2179f97633e98bbbc87044ee2611c7d7999",
-                "reference": "1bcbb2179f97633e98bbbc87044ee2611c7d7999",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/4a21235f7e56e713259a6f76bf4b5ea08502b9dc",
+                "reference": "4a21235f7e56e713259a6f76bf4b5ea08502b9dc",
                 "shasum": ""
             },
             "require": {
+                "ext-ctype": "*",
+                "ext-json": "*",
                 "ext-tokenizer": "*",
-                "php": ">=7.0"
+                "php": ">=7.4"
             },
             "require-dev": {
                 "ircmaxell/php-yacc": "^0.0.7",
-                "phpunit/phpunit": "^6.5 || ^7.0 || ^8.0 || ^9.0"
+                "phpunit/phpunit": "^7.0 || ^8.0 || ^9.0"
             },
             "bin": [
                 "bin/php-parse"
@@ -1157,7 +1158,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.9-dev"
+                    "dev-master": "5.0-dev"
                 }
             },
             "autoload": {
@@ -1181,9 +1182,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nikic/PHP-Parser/issues",
-                "source": "https://github.com/nikic/PHP-Parser/tree/v4.18.0"
+                "source": "https://github.com/nikic/PHP-Parser/tree/v5.0.0"
             },
-            "time": "2023-12-10T21:03:43+00:00"
+            "time": "2024-01-07T17:17:35+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -1619,16 +1620,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "10.5.3",
+            "version": "10.5.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "6fce887c71076a73f32fd3e0774a6833fc5c7f19"
+                "reference": "0bd663704f0165c9e76fe4f06ffa6a1ca727fdbe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/6fce887c71076a73f32fd3e0774a6833fc5c7f19",
-                "reference": "6fce887c71076a73f32fd3e0774a6833fc5c7f19",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/0bd663704f0165c9e76fe4f06ffa6a1ca727fdbe",
+                "reference": "0bd663704f0165c9e76fe4f06ffa6a1ca727fdbe",
                 "shasum": ""
             },
             "require": {
@@ -1700,7 +1701,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
                 "security": "https://github.com/sebastianbergmann/phpunit/security/policy",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/10.5.3"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/10.5.9"
             },
             "funding": [
                 {
@@ -1716,7 +1717,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-12-13T07:25:23+00:00"
+            "time": "2024-01-22T14:35:40+00:00"
         },
         {
             "name": "sebastian/cli-parser",
