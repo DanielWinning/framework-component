@@ -13,6 +13,7 @@ class Installer
     {
         self::updateGitignore();
         self::updateComposerJson();
+        self::updatePackageJson();
         self::installAssets();
     }
 
@@ -33,7 +34,7 @@ class Installer
      */
     private static function updateComposerJson(): void
     {
-        $composerJsonPath = sprintf('%s/composer.json', self::projectDirectory());
+        $composerJsonPath = self::getFilepath('composer');
         $composerText = file_get_contents($composerJsonPath);
         $composerJson = json_decode($composerText);
 
@@ -42,6 +43,20 @@ class Installer
         $composerText = str_replace($composerJson->authors[0]->email, 'yourname@email.com', $composerText);
 
         file_put_contents($composerJsonPath, $composerText);
+    }
+
+    /**
+     * @return void
+     */
+    private static function updatePackageJson(): void
+    {
+        $packageJsonPath = self::getFilepath('package');
+        $packageText = file_get_contents($packageJsonPath);
+        $packageJson = json_decode($packageText);
+
+        $packageText = str_replace($packageJson->repository->url, 'https://github.com/YourName/Repo', $packageText);
+
+        file_put_contents($packageJsonPath, $packageText);
     }
 
     /**
@@ -58,5 +73,15 @@ class Installer
     private static function projectDirectory(): string
     {
         return dirname(__DIR__, 5);
+    }
+
+    /**
+     * @param string $filename
+     *
+     * @return string
+     */
+    private static function getFilepath(string $filename): string
+    {
+        return sprintf('%s/%s.json', self::projectDirectory(), $filename);
     }
 }
