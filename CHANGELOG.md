@@ -1,5 +1,8 @@
 # Luma | Framework Component Changelog
 
+## [0.4.3] - 2024-03-12
+- Fix bug: remove duplicate namespace declaration
+
 ## [0.4.2] - 2024-03-12
 - Update installer to account for planned changes to `package.json` within the Luma project
 

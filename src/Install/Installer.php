@@ -2,8 +2,6 @@
 
 namespace Luma\Framework\Install;
 
-namespace Luma\Framework\Install;
-
 class Installer
 {
     /**
