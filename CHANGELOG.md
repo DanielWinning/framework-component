@@ -1,7 +1,6 @@
 # Luma | Framework Component Changelog
 
-## [Unreleased]
-[patch]
+## [0.4.2] - 2024-03-12
 - Update installer to account for planned changes to `package.json` within the Luma project
 
 ## [0.4.1] - 2024-03-02
