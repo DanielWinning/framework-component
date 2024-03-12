@@ -1,7 +1,6 @@
 # Luma | Framework Component Changelog
 
-## [Unreleased]
-[patch]
+## [0.4.3] - 2024-03-12
 - Fix bug: remove duplicate namespace declaration
 
 ## [0.4.2] - 2024-03-12
