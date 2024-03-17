@@ -1,7 +1,6 @@
 # Luma | Framework Component Changelog
 
-## [Unreleased]
-[minor]
+## [0.6.0] - 2024-03-17
 ### Added
 - N/A
 
