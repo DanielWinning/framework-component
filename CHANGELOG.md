@@ -1,5 +1,28 @@
 # Luma | Framework Component Changelog
 
+## [0.5.0] - 2024-03-17
+### Added
+- Required `lumax/aurora-db`.
+- Establishes database connection if required environment variables are set.
+- Sets up `Aurora` for database interaction.
+
+### Changed
+- N/A
+
+### Deprecated
+- N/A
+
+### Removed
+- N/A
+
+### Fixed
+- N/A
+
+### Security
+- Increased unit test coverage.
+
+---
+
 ## [0.4.4] - 2024-03-17
 ### Added
 - N/A
@@ -20,15 +43,87 @@
 ### Security
 - N/A
 
+---
+
 ## [0.4.3] - 2024-03-12
-- Fix bug: remove duplicate namespace declaration
+### Added
+- N/A
+
+### Changed
+- N/A
+
+### Deprecated
+- N/A
+
+### Removed
+- N/A
+
+### Fixed
+- Remove duplicate namespace declaration.
+
+### Security
+- N/A
+
+---
 
 ## [0.4.2] - 2024-03-12
-- Update installer to account for planned changes to `package.json` within the Luma project
+### Added
+- N/A
+
+### Changed
+- Update installer to handle changes to `package.json` in the Luma project.
+
+### Deprecated
+- N/A
+
+### Removed
+- N/A
+
+### Fixed
+- Remove duplicate namespace declaration.
+
+### Security
+- N/A
+
+---
 
 ## [0.4.1] - 2024-03-02
-- Update dependencies
+### Added
+- N/A
+
+### Changed
+- N/A
+
+### Deprecated
+- N/A
+
+### Removed
+- N/A
+
+### Fixed
+- N/A
+
+### Security
+- Update dependencies.
+
+---
 
 ## [0.4.0] - 2024-03-02
-- Add CHANGELOG
-- Add build pipeline
+### Added
+- Added `CHANGELOG.md`.
+- Added Jenkinsfiles for automated build/test pipeline.
+
+### Changed
+- N/A
+
+### Deprecated
+- N/A
+
+### Removed
+- N/A
+
+### Fixed
+- N/A
+
+### Security
+- N/A

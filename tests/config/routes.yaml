@@ -1,0 +1,8 @@
+routes:
+  index:
+    path: '/'
+    handler: ['Luma\Tests\Controllers\TestController', 'index']
+
+  json:
+    path: '/json'
+    handler: ['Luma\Tests\Controllers\TestController', 'respondsWithJson']
