@@ -25,7 +25,7 @@ class LumaTest extends TestCase
     protected function setUp(): void
     {
         $this->configDirectory = dirname(__DIR__) . '/config';
-        (Dotenv::createImmutable($this->configDirectory))->load();
+        (Dotenv::createImmutable($this->configDirectory))->safeLoad();
         $this->testClass = new Luma($this->configDirectory);
     }
 
