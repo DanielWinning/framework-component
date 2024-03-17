@@ -6,6 +6,7 @@ use Luma\DependencyInjectionComponent\DependencyContainer;
 use Luma\DependencyInjectionComponent\DependencyManager;
 use Luma\DependencyInjectionComponent\Exception\NotFoundException;
 use Luma\HttpComponent\Request;
+use Luma\HttpComponent\Response;
 use Luma\RoutingComponent\Router;
 
 class Luma
@@ -52,6 +53,25 @@ class Luma
     {
         $response = $this->router->handleRequest($request);
 
+        http_response_code($response->getStatusCode());
+        header(sprintf('HTTP/%s %s %s', $response->getProtocolVersion(), $response->getStatusCode(), $response->getReasonPhrase()));
+
+        foreach ($response->getHeaders() as $name => $values) {
+            foreach ($values as $value) {
+                header(sprintf('%s: %s', $name, $value), false);
+            }
+        }
+
+        $this->echoResponse($response);
+    }
+
+    /**
+     * @param Response $response
+     *
+     * @return void
+     */
+    private function echoResponse(Response $response): void
+    {
         echo $response->getBody()->getContents();
     }
 }

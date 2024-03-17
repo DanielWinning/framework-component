@@ -7,6 +7,11 @@
       "Luma\\Framework\\": "src/"
     }
   },
+  "autoload-dev": {
+    "psr-4": {
+      "Luma\\Tests\\": "tests/"
+    }
+  },
   "authors": [
     {
       "name": "Daniel Winning",
