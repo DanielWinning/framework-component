@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cd155b5fb7ed8be24ae8a8079fccc3a6",
+    "content-hash": "452d2bbebfe824d0838d07a1d5c4a0e2",
     "packages": [
         {
             "name": "graham-campbell/result-type",
@@ -237,16 +237,16 @@
         },
         {
             "name": "lumax/http-component",
-            "version": "2.0.5",
+            "version": "2.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/DanielWinning/http-component.git",
-                "reference": "978b4ec6bb2070e8b305fde8a8e973c8303e91cf"
+                "reference": "54163d9b121a1716e48dfa82396d610e4357ec9b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/DanielWinning/http-component/zipball/978b4ec6bb2070e8b305fde8a8e973c8303e91cf",
-                "reference": "978b4ec6bb2070e8b305fde8a8e973c8303e91cf",
+                "url": "https://api.github.com/repos/DanielWinning/http-component/zipball/54163d9b121a1716e48dfa82396d610e4357ec9b",
+                "reference": "54163d9b121a1716e48dfa82396d610e4357ec9b",
                 "shasum": ""
             },
             "require": {
@@ -276,9 +276,9 @@
             "description": "A component for handling HTTP Requests/Responses",
             "support": {
                 "issues": "https://github.com/DanielWinning/http-component/issues",
-                "source": "https://github.com/DanielWinning/http-component/tree/2.0.5"
+                "source": "https://github.com/DanielWinning/http-component/tree/2.0.6"
             },
-            "time": "2023-12-23T11:57:19+00:00"
+            "time": "2024-03-17T07:38:01+00:00"
         },
         {
             "name": "lumax/routing-component",
