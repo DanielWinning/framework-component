@@ -7,6 +7,7 @@ use Luma\AuroraDatabase\Model\Aurora;
 use Luma\DependencyInjectionComponent\DependencyContainer;
 use Luma\DependencyInjectionComponent\DependencyManager;
 use Luma\DependencyInjectionComponent\Exception\NotFoundException;
+use Luma\Framework\Controller\LumaController;
 use Luma\HttpComponent\Request;
 use Luma\HttpComponent\Response;
 use Luma\RoutingComponent\Router;
@@ -16,18 +17,19 @@ class Luma
     private DependencyContainer $container;
     private DependencyManager $dependencyManager;
     private Router $router;
-    private DatabaseConnection $databaseConnection;
-    private string $configDir;
+
+    private string $configDirectory;
 
     /**
      * @throws NotFoundException|\Throwable
      */
-    public function __construct(string $configDir)
+    public function __construct(string $configDirectory, string $templateDirectory, string $cacheDirectory)
     {
         $this->container = new DependencyContainer();
         $this->dependencyManager = new DependencyManager($this->container);
         $this->router = new Router($this->container);
-        $this->configDir = $configDir;
+        $this->configDirectory = $configDirectory;
+        LumaController::setDirectories($templateDirectory, $cacheDirectory);
 
         $this->load();
     }
@@ -41,9 +43,9 @@ class Luma
     {
         $this->establishDatabaseConnection();
         $this->dependencyManager
-            ->loadDependenciesFromFile(sprintf('%s/services.yaml', $this->configDir));
+            ->loadDependenciesFromFile(sprintf('%s/services.yaml', $this->configDirectory));
         $this->router
-            ->loadRoutesFromFile(sprintf('%s/routes.yaml', $this->configDir));
+            ->loadRoutesFromFile(sprintf('%s/routes.yaml', $this->configDirectory));
     }
 
     /**
@@ -62,18 +64,19 @@ class Luma
             return;
         }
 
-        $this->databaseConnection = new DatabaseConnection(
-            sprintf(
-                '%s:host=%s;port=%s;%s',
-                $_ENV['DATABASE_DRIVER'] ?? 'mysql',
-                $_ENV['DATABASE_HOST'],
-                $_ENV['DATABASE_PORT'],
-                $_ENV['DATABASE_SCHEMA'] ?? ''
-            ),
-            $_ENV['DATABASE_USER'],
-            $_ENV['DATABASE_PASSWORD']
+        Aurora::setDatabaseConnection(
+            new DatabaseConnection(
+                sprintf(
+                    '%s:host=%s;port=%s;%s',
+                    $_ENV['DATABASE_DRIVER'] ?? 'mysql',
+                    $_ENV['DATABASE_HOST'],
+                    $_ENV['DATABASE_PORT'],
+                    $_ENV['DATABASE_SCHEMA'] ?? ''
+                ),
+                $_ENV['DATABASE_USER'],
+                $_ENV['DATABASE_PASSWORD']
+            )
         );
-        Aurora::setDatabaseConnection($this->databaseConnection);
     }
 
     /**

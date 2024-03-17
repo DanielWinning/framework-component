@@ -25,4 +25,12 @@ class TestController extends LumaController
             'title' => 'JSON Response',
         ]);
     }
+
+    /**
+     * @return Response
+     */
+    public function respondsWithRender(): Response
+    {
+        return $this->render('render-test');
+    }
 }

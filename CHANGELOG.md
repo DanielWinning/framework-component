@@ -1,5 +1,29 @@
 # Luma | Framework Component Changelog
 
+## [Unreleased]
+[minor]
+### Added
+- N/A
+
+### Changed
+- Made the `$data` argument option in `LumaController::render()`, if no argument is provided the new default `[]` will 
+be used.
+- `Luma` now requires template and cache directory arguments, allowing for more flexibility.
+
+### Deprecated
+- N/A
+
+### Removed
+- N/A
+
+### Fixed
+- N/A
+
+### Security
+- Increase test coverage, test render method.
+
+---
+
 ## [0.5.0] - 2024-03-17
 ### Added
 - Required `lumax/aurora-db`.
