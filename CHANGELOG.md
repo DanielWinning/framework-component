@@ -1,5 +1,27 @@
 # Luma | Framework Component Changelog
 
+## [Unreleased]
+[patch]
+### Added
+- N/A
+
+### Changed
+- No longer send `Content-Length` header if debugging is enabled.
+
+### Deprecated
+- N/A
+
+### Removed
+- N/A
+
+### Fixed
+- N/A
+
+### Security
+- N/A
+
+---
+
 ## [0.6.0] - 2024-03-17
 ### Added
 - N/A

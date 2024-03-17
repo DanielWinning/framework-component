@@ -6,6 +6,7 @@ use Luma\HttpComponent\Response;
 use Luma\HttpComponent\StreamBuilder;
 use Latte\Bridges\Tracy\TracyExtension;
 use Latte\Engine;
+use Tracy\Debugger;
 
 class LumaController
 {
@@ -37,19 +38,25 @@ class LumaController
 
     /**
      * @param string $data
+     * @param string $contentType
      * @param int $statusCode
      *
      * @return Response
      */
-    protected function respond(string $data, int $statusCode = 200): Response
+    protected function respond(string $data, string $contentType = 'text/html', int $statusCode = 200): Response
     {
+        $responseHeaders = [
+            'Content-Type' => $contentType,
+        ];
+
+        if (!Debugger::isEnabled()) {
+            $responseHeaders['Content-Length'] = strlen($data);
+        }
+
         return new Response(
             $statusCode,
             'OK',
-            [
-                'Content-Type' => 'text/html',
-                'Content-Length' => strlen($data),
-            ],
+            $responseHeaders,
             StreamBuilder::build($data)
         );
     }
@@ -77,6 +84,6 @@ class LumaController
      */
     protected function json(array|object $data): Response
     {
-        return $this->respond(json_encode($data))->withHeader('Content-Type', 'application/json');
+        return $this->respond(json_encode($data), 'application/json');
     }
 }
