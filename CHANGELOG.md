@@ -1,7 +1,6 @@
 # Luma | Framework Component Changelog
 
-## [Unreleased]
-[minor]
+## [0.5.0] - 2024-03-17
 ### Added
 - Required `lumax/aurora-db`.
 - Establishes database connection if required environment variables are set.
