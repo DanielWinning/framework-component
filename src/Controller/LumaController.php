@@ -10,12 +10,29 @@ use Latte\Engine;
 class LumaController
 {
     private Engine $templateEngine;
+    private static string $templateDirectory;
+    private static string $cacheDirectory;
 
     public function __construct()
     {
         $this->templateEngine = new Engine();
         $this->templateEngine->addExtension(new TracyExtension());
-        $this->templateEngine->setTempDirectory(sprintf('%s/cache/views', dirname(__DIR__, 5)));
+        $this->templateEngine->setTempDirectory(static::$cacheDirectory);
+    }
+
+    /**
+     * Used internally to set the base directories for all controllers. There is no need to call this method within a
+     * Luma application.
+     *
+     * @param string $templateDirectory
+     * @param string $cacheDirectory
+     *
+     * @return void
+     */
+    public static function setDirectories(string $templateDirectory, string $cacheDirectory): void
+    {
+        static::$templateDirectory = $templateDirectory;
+        static::$cacheDirectory = $cacheDirectory;
     }
 
     /**
@@ -43,12 +60,12 @@ class LumaController
      *
      * @return Response
      */
-    protected function render(string $templatePath, array $data): Response
+    protected function render(string $templatePath, array $data = []): Response
     {
         $templatePath = str_contains($templatePath, '.latte')
             ? $templatePath
             : sprintf('%s.latte', $templatePath);
-        $templatePath = sprintf('%s/views/%s', dirname(__DIR__, 5), $templatePath);
+        $templatePath = sprintf('%s/%s', static::$templateDirectory, $templatePath);
 
         return $this->respond($this->templateEngine->renderToString($templatePath, $data));
     }

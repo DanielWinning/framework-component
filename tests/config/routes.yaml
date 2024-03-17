@@ -6,3 +6,11 @@ routes:
   json:
     path: '/json'
     handler: ['Luma\Tests\Controllers\TestController', 'respondsWithJson']
+
+  render_test:
+    path: '/render-test'
+    handler: ['Luma\Tests\Controllers\TestController', 'respondsWithRender']
+
+  render_from_path_test:
+    path: '/render-with-extension-test'
+    handler: ['Luma\Tests\Controllers\TestController', 'respondsWithRenderWithExtension']
