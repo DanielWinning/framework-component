@@ -20,13 +20,14 @@ class LumaController
 
     /**
      * @param string $data
+     * @param int $statusCode
      *
      * @return Response
      */
-    protected function respond(string $data): Response
+    protected function respond(string $data, int $statusCode = 200): Response
     {
         return new Response(
-            200,
+            $statusCode,
             'OK',
             [
                 'Content-Type' => 'text/html',
