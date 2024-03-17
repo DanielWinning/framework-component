@@ -1,6 +1,7 @@
 # Luma | Framework Component Changelog
 
 ## [Unreleased]
+[patch]
 ### Added
 - N/A
 
