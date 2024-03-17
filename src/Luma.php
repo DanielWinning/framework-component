@@ -2,6 +2,8 @@
 
 namespace Luma\Framework;
 
+use Luma\AuroraDatabase\DatabaseConnection;
+use Luma\AuroraDatabase\Model\Aurora;
 use Luma\DependencyInjectionComponent\DependencyContainer;
 use Luma\DependencyInjectionComponent\DependencyManager;
 use Luma\DependencyInjectionComponent\Exception\NotFoundException;
@@ -14,6 +16,7 @@ class Luma
     private DependencyContainer $container;
     private DependencyManager $dependencyManager;
     private Router $router;
+    private DatabaseConnection $databaseConnection;
     private string $configDir;
 
     /**
@@ -32,14 +35,45 @@ class Luma
     /**
      * @return void
      *
-     * @throws NotFoundException
+     * @throws \Exception|NotFoundException
      */
     private function load(): void
     {
+        $this->establishDatabaseConnection();
         $this->dependencyManager
             ->loadDependenciesFromFile(sprintf('%s/services.yaml', $this->configDir));
         $this->router
             ->loadRoutesFromFile(sprintf('%s/routes.yaml', $this->configDir));
+    }
+
+    /**
+     * @return void
+     *
+     * @throws \Exception
+     */
+    private function establishDatabaseConnection(): void
+    {
+        $databaseCredentialsAreSet = isset($_ENV['DATABASE_HOST'])
+            && isset($_ENV['DATABASE_PORT'])
+            && isset($_ENV['DATABASE_USER'])
+            && isset($_ENV['DATABASE_PASSWORD']);
+
+        if (!$databaseCredentialsAreSet) {
+            return;
+        }
+
+        $this->databaseConnection = new DatabaseConnection(
+            sprintf(
+                '%s:host=%s;port=%s;%s',
+                $_ENV['DATABASE_DRIVER'] ?? 'mysql',
+                $_ENV['DATABASE_HOST'],
+                $_ENV['DATABASE_PORT'],
+                $_ENV['DATABASE_SCHEMA'] ?? ''
+            ),
+            $_ENV['DATABASE_USER'],
+            $_ENV['DATABASE_PASSWORD']
+        );
+        Aurora::setDatabaseConnection($this->databaseConnection);
     }
 
     /**

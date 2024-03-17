@@ -2,19 +2,20 @@
 
 namespace Luma\Tests\Unit;
 
+use Dotenv\Dotenv;
 use Luma\DependencyInjectionComponent\Exception\NotFoundException;
-use Luma\Framework\Controller\LumaController;
 use Luma\Framework\Luma;
 use Luma\HttpComponent\Request;
 use Luma\HttpComponent\StreamBuilder;
 use Luma\HttpComponent\Web\WebServerUri;
-use Luma\Tests\Controllers\TestController;
+use Luma\Tests\Classes\Article;
+use PHPUnit\Framework\MockObject\Exception;
 use PHPUnit\Framework\TestCase;
-use Symfony\Component\Yaml\Yaml;
 
 class LumaTest extends TestCase
 {
     private Luma $testClass;
+    private string $configDirectory;
 
     /**
      * @return void
@@ -23,34 +24,9 @@ class LumaTest extends TestCase
      */
     protected function setUp(): void
     {
-        $routeConfig = fopen(sprintf('%s/%s', sys_get_temp_dir(), 'routes.yaml'), 'w');
-        fwrite(
-            $routeConfig,
-            Yaml::dump([
-                'routes' => [
-                    [
-                        'path' => '/',
-                        'handler' => [TestController::class, 'index']
-                    ]
-                ]
-            ])
-        );
-        fclose($routeConfig);
-
-        $serviceConfig = fopen(sprintf('%s/%s', sys_get_temp_dir(), 'services.yaml'), 'w');
-        fwrite($serviceConfig, Yaml::dump([]));
-        fclose($serviceConfig);
-
-        $this->testClass = new Luma(sys_get_temp_dir());
-    }
-
-    /**
-     * @return void
-     */
-    protected function tearDown(): void
-    {
-        unlink(sprintf('%s/%s', sys_get_temp_dir(), 'routes.yaml'));
-        unlink(sprintf('%s/%s', sys_get_temp_dir(), 'services.yaml'));
+        $this->configDirectory = dirname(__DIR__) . '/config';
+        (Dotenv::createImmutable($this->configDirectory))->load();
+        $this->testClass = new Luma($this->configDirectory);
     }
 
     /**
@@ -61,19 +37,30 @@ class LumaTest extends TestCase
     public function testItCreatesAnInstanceOfLuma(): void
     {
         $this->assertInstanceOf(Luma::class, $this->testClass);
+
+        unset($_ENV['DATABASE_HOST']);
+
+        $newLuma = new Luma($this->configDirectory);
+
+        $this->assertInstanceOf(Luma::class, $newLuma);
     }
 
     /**
+     * @param array $data
+     * @param string $expectedOutput
+     *
      * @return void
      *
-     * @throws \ReflectionException|\Throwable
+     * @throws Exception|\ReflectionException|\Throwable
+     *
+     * @dataProvider runDataProvider
      */
-    public function testItRuns(): void
+    public function testItRuns(array $data, string $expectedOutput): void
     {
         $_SERVER['HTTPS'] = 'on';
         $_SERVER['HTTP_HOST'] = 'localhost';
-        $_SERVER['REQUEST_URI'] = '/';
-        $_SERVER['REQUEST_METHOD'] = 'GET';
+        $_SERVER['REQUEST_URI'] = $data['path'];
+        $_SERVER['REQUEST_METHOD'] = $data['method'];
 
         $headers = [
             'Content-Type' => 'application/json',
@@ -85,7 +72,40 @@ class LumaTest extends TestCase
         $request->method('getHeaders')->willReturn($headers);
         $request->method('getBody')->willReturn(StreamBuilder::build(''));
 
-        $this->expectOutputString('Index');
+        $this->expectOutputString($expectedOutput);
         $this->testClass->run($request);
+    }
+
+    /**
+     * @return void
+     */
+    public function testDatabaseInteraction(): void
+    {
+        $articles = Article::all();
+
+        $this->assertIsArray($articles);
+    }
+
+    /**
+     * @return array[]
+     */
+    public static function runDataProvider(): array
+    {
+        return [
+            [
+                'data' => [
+                    'path' => '/',
+                    'method' => 'GET',
+                ],
+                'expected' => 'Index',
+            ],
+            [
+                'data' => [
+                    'path' => '/json',
+                    'method' => 'GET',
+                ],
+                'expected' => '{"title":"JSON Response"}',
+            ]
+        ];
     }
 }

@@ -15,4 +15,14 @@ class TestController extends LumaController
     {
         return $this->respond('Index');
     }
+
+    /**
+     * @return Response
+     */
+    public function respondsWithJson(): Response
+    {
+        return $this->json([
+            'title' => 'JSON Response',
+        ]);
+    }
 }
