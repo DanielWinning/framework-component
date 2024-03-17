@@ -33,4 +33,12 @@ class TestController extends LumaController
     {
         return $this->render('render-test');
     }
+
+    /**
+     * @return Response
+     */
+    public function respondsWithRenderWithExtension(): Response
+    {
+        return $this->render('render-test.latte');
+    }
 }

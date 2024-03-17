@@ -72,13 +72,17 @@ class LumaTest extends TestCase
     }
 
     /**
+     * @param string $path
+     *
      * @return void
      *
      * @throws Exception|\ReflectionException|\Throwable
+     *
+     * @dataProvider renderDataProvider
      */
-    public function testItRenders(): void
+    public function testItRenders(string $path): void
     {
-        $request = $this->setupRequest('/render-test', 'GET');
+        $request = $this->setupRequest($path, 'GET');
 
         $this->expectOutputString('<h1>Hello, Render Test!</h1>');
         $this->testClass->run($request);
@@ -144,6 +148,21 @@ class LumaTest extends TestCase
                     'method' => 'GET',
                 ],
                 'expected' => '{"title":"JSON Response"}',
+            ]
+        ];
+    }
+
+    /**
+     * @return array[]
+     */
+    public static function renderDataProvider(): array
+    {
+        return [
+            [
+                'path' => '/render-test',
+            ],
+            [
+                'path' => '/render-with-extension-test',
             ]
         ];
     }
