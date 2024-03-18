@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "452d2bbebfe824d0838d07a1d5c4a0e2",
+    "content-hash": "16cbcb15a8ad6b194934f5d2236ad4f9",
     "packages": [
         {
             "name": "graham-campbell/result-type",
@@ -155,16 +155,16 @@
         },
         {
             "name": "lumax/aurora-db",
-            "version": "1.0.0",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/DanielWinning/aurora-db.git",
-                "reference": "709701c4cc8c05d9838e679e674206d02d4f93d4"
+                "reference": "de9aaf39f6c65459225d5b36f5e2abfb971d71dd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/DanielWinning/aurora-db/zipball/709701c4cc8c05d9838e679e674206d02d4f93d4",
-                "reference": "709701c4cc8c05d9838e679e674206d02d4f93d4",
+                "url": "https://api.github.com/repos/DanielWinning/aurora-db/zipball/de9aaf39f6c65459225d5b36f5e2abfb971d71dd",
+                "reference": "de9aaf39f6c65459225d5b36f5e2abfb971d71dd",
                 "shasum": ""
             },
             "require": {
@@ -187,9 +187,9 @@
             "description": "A stand-alone database component built for the Luma framework.",
             "support": {
                 "issues": "https://github.com/DanielWinning/aurora-db/issues",
-                "source": "https://github.com/DanielWinning/aurora-db/tree/1.0.0"
+                "source": "https://github.com/DanielWinning/aurora-db/tree/2.0.0"
             },
-            "time": "2024-03-16T23:33:36+00:00"
+            "time": "2024-03-18T20:06:03+00:00"
         },
         {
             "name": "lumax/dependency-injection-component",
