@@ -1,5 +1,25 @@
 # Luma | Framework Component Changelog
 
+## [Unreleased]
+[patch]
+### Added
+- N/A
+
+### Changed
+- N/A
+
+### Deprecated
+- N/A
+
+### Removed
+- N/A
+
+### Fixed
+- N/A
+
+### Security
+- Update `lumax/aurora-db` from`1.0.0` to `2.0.0`
+
 ## [0.6.1] - 2024-03-17
 ### Added
 - N/A

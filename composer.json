@@ -24,7 +24,7 @@
     "lumax/routing-component": "^1.3",
     "lumax/dependency-injection-component": "^1.1",
     "vlucas/phpdotenv": "^5.6",
-    "lumax/aurora-db": "^1.0"
+    "lumax/aurora-db": "^2.0"
   },
   "scripts": {
     "test": "php -d xdebug.mode=coverage ./vendor/bin/phpunit --testdox --colors=always --coverage-html coverage --coverage-clover coverage/coverage.xml --testdox-html coverage/testdox.html && npx badger --phpunit ./coverage/coverage.xml && npx badger --version ./composer.json && npx badger --license ./composer.json"
