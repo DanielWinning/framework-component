@@ -75,6 +75,10 @@ class LumaController
             : sprintf('%s.latte', $templatePath);
         $templatePath = sprintf('%s/%s', static::$templateDirectory, $templatePath);
 
+        if (!isset($data['errors'])) {
+            $data['errors'] = $this->getErrors();
+        }
+
         return $this->respond($this->templateEngine->renderToString($templatePath, $data));
     }
 
