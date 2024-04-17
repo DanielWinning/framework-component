@@ -29,7 +29,7 @@ class User extends AbstractUser
     #[Column('strEmailAddress')]
     private string $emailAddress;
 
-    #[AuroraCollection()]
+    #[AuroraCollection(class: Role::class, pivotSchema: 'Security', pivotTable: 'tblRoleUser', pivotColumn: 'intRoleId')]
     protected Collection $roles;
 
     public function getUsername(): string
