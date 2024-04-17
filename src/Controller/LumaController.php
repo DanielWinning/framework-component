@@ -13,6 +13,7 @@ class LumaController
     private Engine $templateEngine;
     private static string $templateDirectory;
     private static string $cacheDirectory;
+    private array $errors = [];
 
     public function __construct()
     {
@@ -85,5 +86,23 @@ class LumaController
     protected function json(array|object $data): Response
     {
         return $this->respond(json_encode($data), 'application/json');
+    }
+
+    /**
+     * @param string $error
+     *
+     * @return void
+     */
+    protected function addError(string $error): void
+    {
+        $this->errors[] = $error;
+    }
+
+    /**
+     * @return array
+     */
+    protected function getErrors(): array
+    {
+        return $this->errors;
     }
 }
