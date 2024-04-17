@@ -282,16 +282,16 @@
         },
         {
             "name": "lumax/routing-component",
-            "version": "1.4.0",
+            "version": "1.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/DanielWinning/routing-component.git",
-                "reference": "49e6340e32cab010b72bf3e9169ecdbe8eb1d50e"
+                "reference": "36143f084fd4fc1217092fb798f8b7982320a1b1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/DanielWinning/routing-component/zipball/49e6340e32cab010b72bf3e9169ecdbe8eb1d50e",
-                "reference": "49e6340e32cab010b72bf3e9169ecdbe8eb1d50e",
+                "url": "https://api.github.com/repos/DanielWinning/routing-component/zipball/36143f084fd4fc1217092fb798f8b7982320a1b1",
+                "reference": "36143f084fd4fc1217092fb798f8b7982320a1b1",
                 "shasum": ""
             },
             "require": {
@@ -322,9 +322,9 @@
             "description": "A dynamic PHP Routing Component.",
             "support": {
                 "issues": "https://github.com/DanielWinning/routing-component/issues",
-                "source": "https://github.com/DanielWinning/routing-component/tree/1.4.0"
+                "source": "https://github.com/DanielWinning/routing-component/tree/1.4.1"
             },
-            "time": "2024-04-17T20:18:27+00:00"
+            "time": "2024-04-17T21:26:30+00:00"
         },
         {
             "name": "lumax/security-component",
