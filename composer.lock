@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "66a0e2aaace219df6289acd3cb5a427b",
+    "content-hash": "71ebd41f455cd5c5d0284c655160bb76",
     "packages": [
         {
             "name": "graham-campbell/result-type",
@@ -282,16 +282,16 @@
         },
         {
             "name": "lumax/routing-component",
-            "version": "1.3.9",
+            "version": "1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/DanielWinning/routing-component.git",
-                "reference": "6a8f1aa328c76897e93efc93701756a8a3643e2e"
+                "reference": "49e6340e32cab010b72bf3e9169ecdbe8eb1d50e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/DanielWinning/routing-component/zipball/6a8f1aa328c76897e93efc93701756a8a3643e2e",
-                "reference": "6a8f1aa328c76897e93efc93701756a8a3643e2e",
+                "url": "https://api.github.com/repos/DanielWinning/routing-component/zipball/49e6340e32cab010b72bf3e9169ecdbe8eb1d50e",
+                "reference": "49e6340e32cab010b72bf3e9169ecdbe8eb1d50e",
                 "shasum": ""
             },
             "require": {
@@ -322,9 +322,9 @@
             "description": "A dynamic PHP Routing Component.",
             "support": {
                 "issues": "https://github.com/DanielWinning/routing-component/issues",
-                "source": "https://github.com/DanielWinning/routing-component/tree/1.3.9"
+                "source": "https://github.com/DanielWinning/routing-component/tree/1.4.0"
             },
-            "time": "2024-03-17T00:03:01+00:00"
+            "time": "2024-04-17T20:18:27+00:00"
         },
         {
             "name": "lumax/security-component",
