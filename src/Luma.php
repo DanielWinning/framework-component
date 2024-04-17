@@ -119,6 +119,8 @@ class Luma
      */
     private function loadProviders()
     {
-        var_dump(file_get_contents($this->configDirectory . '/providers.php'));
+        $providers = require_once $this->configDirectory . '/providers.php';
+
+        var_dump($providers);
     }
 }
