@@ -19,6 +19,7 @@ class Luma
     private Router $router;
 
     private string $configDirectory;
+    private array $providers = [];
 
     /**
      * @throws NotFoundException|\Throwable
@@ -117,10 +118,14 @@ class Luma
     /**
      * @return void
      */
-    private function loadProviders()
+    private function loadProviders(): void
     {
         $providers = require_once $this->configDirectory . '/providers.php';
 
-        var_dump($providers);
+        foreach ($providers as $provider => $arguments) {
+            if (class_exists($provider)) {
+                $this->providers[] = new $provider(...$arguments);
+            }
+        }
     }
 }
