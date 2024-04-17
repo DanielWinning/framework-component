@@ -4,6 +4,7 @@ namespace Luma\Framework;
 
 use Luma\AuroraDatabase\DatabaseConnection;
 use Luma\AuroraDatabase\Model\Aurora;
+use Luma\AuroraDatabase\Utils\Collection;
 use Luma\DependencyInjectionComponent\DependencyContainer;
 use Luma\DependencyInjectionComponent\DependencyManager;
 use Luma\DependencyInjectionComponent\Exception\NotFoundException;
@@ -11,6 +12,7 @@ use Luma\Framework\Controller\LumaController;
 use Luma\HttpComponent\Request;
 use Luma\HttpComponent\Response;
 use Luma\RoutingComponent\Router;
+use Luma\SecurityComponent\Authentication\Interface\UserProviderInterface;
 
 class Luma
 {
@@ -19,7 +21,8 @@ class Luma
     private Router $router;
 
     private string $configDirectory;
-    private array $providers = [];
+
+    public static Collection $providers;
 
     /**
      * @throws NotFoundException|\Throwable
@@ -30,6 +33,7 @@ class Luma
         $this->dependencyManager = new DependencyManager($this->container);
         $this->router = new Router($this->container);
         $this->configDirectory = $configDirectory;
+        static::$providers = new Collection();
         LumaController::setDirectories($templateDirectory, $cacheDirectory);
 
         $this->load();
@@ -47,8 +51,6 @@ class Luma
             ->loadDependenciesFromFile(sprintf('%s/services.yaml', $this->configDirectory));
         $this->router
             ->loadRoutesFromFile(sprintf('%s/routes.yaml', $this->configDirectory));
-
-        // Load Providers and Middleware
         $this->loadProviders();
     }
 
@@ -120,12 +122,28 @@ class Luma
      */
     private function loadProviders(): void
     {
-        $providers = require_once $this->configDirectory . '/providers.php';
+        $providersPath = sprintf('%s/providers.php', $this->configDirectory);
+
+        if (!file_exists($providersPath)) {
+            return;
+        }
+
+        $providers = require_once $providersPath;
 
         foreach ($providers as $provider => $arguments) {
             if (class_exists($provider)) {
-                $this->providers[] = new $provider(...$arguments);
+                static::$providers->add(new $provider(...$arguments));
             }
         }
+    }
+
+    /**
+     * @return UserProviderInterface|null
+     */
+    public static function getUserProvider(): ?UserProviderInterface
+    {
+        return static::$providers->find(function ($provider) {
+            return $provider instanceof UserProviderInterface;
+        });
     }
 }
