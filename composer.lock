@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "16cbcb15a8ad6b194934f5d2236ad4f9",
+    "content-hash": "66a0e2aaace219df6289acd3cb5a427b",
     "packages": [
         {
             "name": "graham-campbell/result-type",
@@ -70,16 +70,16 @@
         },
         {
             "name": "latte/latte",
-            "version": "v3.0.13",
+            "version": "v3.0.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/latte.git",
-                "reference": "462444d669809528b6f6ce191b616d747c9b4bfc"
+                "reference": "1ab054b1af13ee647ccbc5bf2673a3483a7457d5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/latte/zipball/462444d669809528b6f6ce191b616d747c9b4bfc",
-                "reference": "462444d669809528b6f6ce191b616d747c9b4bfc",
+                "url": "https://api.github.com/repos/nette/latte/zipball/1ab054b1af13ee647ccbc5bf2673a3483a7457d5",
+                "reference": "1ab054b1af13ee647ccbc5bf2673a3483a7457d5",
                 "shasum": ""
             },
             "require": {
@@ -149,22 +149,22 @@
             ],
             "support": {
                 "issues": "https://github.com/nette/latte/issues",
-                "source": "https://github.com/nette/latte/tree/v3.0.13"
+                "source": "https://github.com/nette/latte/tree/v3.0.14"
             },
-            "time": "2024-01-09T13:54:57+00:00"
+            "time": "2024-03-19T09:03:26+00:00"
         },
         {
             "name": "lumax/aurora-db",
-            "version": "2.0.0",
+            "version": "2.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/DanielWinning/aurora-db.git",
-                "reference": "de9aaf39f6c65459225d5b36f5e2abfb971d71dd"
+                "reference": "eb32787eae11a55d0958ae349b6ae900e95ab421"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/DanielWinning/aurora-db/zipball/de9aaf39f6c65459225d5b36f5e2abfb971d71dd",
-                "reference": "de9aaf39f6c65459225d5b36f5e2abfb971d71dd",
+                "url": "https://api.github.com/repos/DanielWinning/aurora-db/zipball/eb32787eae11a55d0958ae349b6ae900e95ab421",
+                "reference": "eb32787eae11a55d0958ae349b6ae900e95ab421",
                 "shasum": ""
             },
             "require": {
@@ -187,9 +187,9 @@
             "description": "A stand-alone database component built for the Luma framework.",
             "support": {
                 "issues": "https://github.com/DanielWinning/aurora-db/issues",
-                "source": "https://github.com/DanielWinning/aurora-db/tree/2.0.0"
+                "source": "https://github.com/DanielWinning/aurora-db/tree/2.4.0"
             },
-            "time": "2024-03-18T20:06:03+00:00"
+            "time": "2024-04-03T01:09:43+00:00"
         },
         {
             "name": "lumax/dependency-injection-component",
@@ -325,6 +325,44 @@
                 "source": "https://github.com/DanielWinning/routing-component/tree/1.3.9"
             },
             "time": "2024-03-17T00:03:01+00:00"
+        },
+        {
+            "name": "lumax/security-component",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/DanielWinning/security-component.git",
+                "reference": "7714445526442f71b514821723cfbc558cbc7142"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/DanielWinning/security-component/zipball/7714445526442f71b514821723cfbc558cbc7142",
+                "reference": "7714445526442f71b514821723cfbc558cbc7142",
+                "shasum": ""
+            },
+            "require": {
+                "lumax/aurora-db": "^2.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^10.3",
+                "vlucas/phpdotenv": "^5.6"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Luma\\SecurityComponent\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "description": "The Luma security and authentication component.",
+            "support": {
+                "issues": "https://github.com/DanielWinning/security-component/issues",
+                "source": "https://github.com/DanielWinning/security-component/tree/1.0.0"
+            },
+            "time": "2024-04-14T17:15:01+00:00"
         },
         {
             "name": "phpoption/phpoption",
@@ -939,16 +977,16 @@
         },
         {
             "name": "tracy/tracy",
-            "version": "v2.10.5",
+            "version": "v2.10.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/tracy.git",
-                "reference": "86bdba4aa0f707d3f125933931d3df6e5c7aad79"
+                "reference": "64435e3d5d5e3172e48c026b6b57349d49cbfd49"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/tracy/zipball/86bdba4aa0f707d3f125933931d3df6e5c7aad79",
-                "reference": "86bdba4aa0f707d3f125933931d3df6e5c7aad79",
+                "url": "https://api.github.com/repos/nette/tracy/zipball/64435e3d5d5e3172e48c026b6b57349d49cbfd49",
+                "reference": "64435e3d5d5e3172e48c026b6b57349d49cbfd49",
                 "shasum": ""
             },
             "require": {
@@ -1008,9 +1046,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nette/tracy/issues",
-                "source": "https://github.com/nette/tracy/tree/v2.10.5"
+                "source": "https://github.com/nette/tracy/tree/v2.10.6"
             },
-            "time": "2023-10-16T21:54:18+00:00"
+            "time": "2024-03-31T17:03:25+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -1656,16 +1694,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "10.5.13",
+            "version": "10.5.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "20a63fc1c6db29b15da3bd02d4b6cf59900088a7"
+                "reference": "c726f0de022368f6ed103e452a765d3304a996a4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/20a63fc1c6db29b15da3bd02d4b6cf59900088a7",
-                "reference": "20a63fc1c6db29b15da3bd02d4b6cf59900088a7",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/c726f0de022368f6ed103e452a765d3304a996a4",
+                "reference": "c726f0de022368f6ed103e452a765d3304a996a4",
                 "shasum": ""
             },
             "require": {
@@ -1737,7 +1775,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
                 "security": "https://github.com/sebastianbergmann/phpunit/security/policy",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/10.5.13"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/10.5.19"
             },
             "funding": [
                 {
@@ -1753,7 +1791,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-03-12T15:37:41+00:00"
+            "time": "2024-04-17T14:06:18+00:00"
         },
         {
             "name": "sebastian/cli-parser",
@@ -2127,16 +2165,16 @@
         },
         {
             "name": "sebastian/environment",
-            "version": "6.0.1",
+            "version": "6.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/environment.git",
-                "reference": "43c751b41d74f96cbbd4e07b7aec9675651e2951"
+                "reference": "8074dbcd93529b357029f5cc5058fd3e43666984"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/43c751b41d74f96cbbd4e07b7aec9675651e2951",
-                "reference": "43c751b41d74f96cbbd4e07b7aec9675651e2951",
+                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/8074dbcd93529b357029f5cc5058fd3e43666984",
+                "reference": "8074dbcd93529b357029f5cc5058fd3e43666984",
                 "shasum": ""
             },
             "require": {
@@ -2151,7 +2189,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "6.0-dev"
+                    "dev-main": "6.1-dev"
                 }
             },
             "autoload": {
@@ -2179,7 +2217,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/environment/issues",
                 "security": "https://github.com/sebastianbergmann/environment/security/policy",
-                "source": "https://github.com/sebastianbergmann/environment/tree/6.0.1"
+                "source": "https://github.com/sebastianbergmann/environment/tree/6.1.0"
             },
             "funding": [
                 {
@@ -2187,7 +2225,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-04-11T05:39:26+00:00"
+            "time": "2024-03-23T08:47:14+00:00"
         },
         {
             "name": "sebastian/exporter",
