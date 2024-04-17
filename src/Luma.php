@@ -46,6 +46,9 @@ class Luma
             ->loadDependenciesFromFile(sprintf('%s/services.yaml', $this->configDirectory));
         $this->router
             ->loadRoutesFromFile(sprintf('%s/routes.yaml', $this->configDirectory));
+
+        // Load Providers and Middleware
+        $this->loadProviders();
     }
 
     /**
@@ -67,11 +70,10 @@ class Luma
         Aurora::setDatabaseConnection(
             new DatabaseConnection(
                 sprintf(
-                    '%s:host=%s;port=%s;%s',
+                    '%s:host=%s;port=%s;',
                     $_ENV['DATABASE_DRIVER'] ?? 'mysql',
                     $_ENV['DATABASE_HOST'],
-                    $_ENV['DATABASE_PORT'],
-                    $_ENV['DATABASE_SCHEMA'] ?? ''
+                    $_ENV['DATABASE_PORT']
                 ),
                 $_ENV['DATABASE_USER'],
                 $_ENV['DATABASE_PASSWORD']
@@ -110,5 +112,13 @@ class Luma
     private function echoResponse(Response $response): void
     {
         echo $response->getBody()->getContents();
+    }
+
+    /**
+     * @return void
+     */
+    private function loadProviders()
+    {
+        var_dump(file_get_contents($this->configDirectory . '/providers.php'));
     }
 }
