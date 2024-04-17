@@ -12,6 +12,7 @@ use Luma\Framework\Controller\LumaController;
 use Luma\HttpComponent\Request;
 use Luma\HttpComponent\Response;
 use Luma\RoutingComponent\Router;
+use Luma\SecurityComponent\Authentication\Interface\AuthenticatorInterface;
 use Luma\SecurityComponent\Authentication\Interface\UserProviderInterface;
 
 class Luma
@@ -51,7 +52,7 @@ class Luma
             ->loadDependenciesFromFile(sprintf('%s/services.yaml', $this->configDirectory));
         $this->router
             ->loadRoutesFromFile(sprintf('%s/routes.yaml', $this->configDirectory));
-        $this->loadProviders();
+        $this->loadSecurityProviders();
     }
 
     /**
@@ -120,9 +121,9 @@ class Luma
     /**
      * @return void
      */
-    private function loadProviders(): void
+    private function loadSecurityProviders(): void
     {
-        $providersPath = sprintf('%s/providers.php', $this->configDirectory);
+        $providersPath = sprintf('%s/security.php', $this->configDirectory);
 
         if (!file_exists($providersPath)) {
             return;
@@ -144,6 +145,16 @@ class Luma
     {
         return static::$providers->find(function ($provider) {
             return $provider instanceof UserProviderInterface;
+        });
+    }
+
+    /**
+     * @return AuthenticatorInterface|null
+     */
+    public static function getAuthenticator(): ?AuthenticatorInterface
+    {
+        return static::$providers->find(function ($provider) {
+            return $provider instanceof AuthenticatorInterface;
         });
     }
 }
