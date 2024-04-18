@@ -328,16 +328,16 @@
         },
         {
             "name": "lumax/security-component",
-            "version": "1.0.1",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/DanielWinning/security-component.git",
-                "reference": "ebaaa67efc8369503d16a30099808c5d2d6f4ee5"
+                "reference": "a011557bdb60c5e131bd120e237ddc10e0212274"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/DanielWinning/security-component/zipball/ebaaa67efc8369503d16a30099808c5d2d6f4ee5",
-                "reference": "ebaaa67efc8369503d16a30099808c5d2d6f4ee5",
+                "url": "https://api.github.com/repos/DanielWinning/security-component/zipball/a011557bdb60c5e131bd120e237ddc10e0212274",
+                "reference": "a011557bdb60c5e131bd120e237ddc10e0212274",
                 "shasum": ""
             },
             "require": {
@@ -360,9 +360,9 @@
             "description": "The Luma security and authentication component.",
             "support": {
                 "issues": "https://github.com/DanielWinning/security-component/issues",
-                "source": "https://github.com/DanielWinning/security-component/tree/1.0.1"
+                "source": "https://github.com/DanielWinning/security-component/tree/1.1.0"
             },
-            "time": "2024-04-17T22:42:43+00:00"
+            "time": "2024-04-18T09:17:53+00:00"
         },
         {
             "name": "phpoption/phpoption",
