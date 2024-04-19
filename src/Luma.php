@@ -48,6 +48,7 @@ class Luma
     private function load(): void
     {
         $this->establishDatabaseConnection();
+        Aurora::createQueryPanel();
         $this->dependencyManager
             ->loadDependenciesFromFile(sprintf('%s/services.yaml', $this->configDirectory));
         $this->router
