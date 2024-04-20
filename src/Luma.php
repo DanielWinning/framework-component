@@ -9,11 +9,14 @@ use Luma\DependencyInjectionComponent\DependencyContainer;
 use Luma\DependencyInjectionComponent\DependencyManager;
 use Luma\DependencyInjectionComponent\Exception\NotFoundException;
 use Luma\Framework\Controller\LumaController;
+use Luma\Framework\Debug\AuthenticatedPanel;
 use Luma\HttpComponent\Request;
 use Luma\HttpComponent\Response;
 use Luma\RoutingComponent\Router;
 use Luma\SecurityComponent\Authentication\Interface\AuthenticatorInterface;
+use Luma\SecurityComponent\Authentication\Interface\UserInterface;
 use Luma\SecurityComponent\Authentication\Interface\UserProviderInterface;
+use Tracy\Debugger;
 
 class Luma
 {
@@ -47,6 +50,7 @@ class Luma
      */
     private function load(): void
     {
+        Debugger::getBar()->addPanel(new AuthenticatedPanel());
         Aurora::createQueryPanel();
         $this->establishDatabaseConnection();
         $this->dependencyManager
@@ -157,5 +161,19 @@ class Luma
         return static::$providers->find(function ($provider) {
             return $provider instanceof AuthenticatorInterface;
         });
+    }
+
+    /**
+     * @return UserInterface|null
+     */
+    public static function getLoggedInUser(): ?UserInterface
+    {
+        $userProvider = static::getUserProvider();
+
+        if ($userProvider) {
+            return null;
+        }
+
+        return $userProvider->getUserFromSession();
     }
 }
