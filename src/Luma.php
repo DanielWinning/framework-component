@@ -170,10 +170,6 @@ class Luma
     {
         $userProvider = static::getUserProvider();
 
-        if ($userProvider) {
-            return null;
-        }
-
-        return $userProvider->getUserFromSession();
+        return $userProvider?->getUserFromSession();
     }
 }
