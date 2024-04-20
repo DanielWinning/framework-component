@@ -155,16 +155,16 @@
         },
         {
             "name": "lumax/aurora-db",
-            "version": "2.6.5",
+            "version": "2.6.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/DanielWinning/aurora-db.git",
-                "reference": "2cca25cb8fa132e408d2a94f5fb66be3b38f922a"
+                "reference": "9222d64cc93cd4efc54920b9fa1149ed5f40f8e3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/DanielWinning/aurora-db/zipball/2cca25cb8fa132e408d2a94f5fb66be3b38f922a",
-                "reference": "2cca25cb8fa132e408d2a94f5fb66be3b38f922a",
+                "url": "https://api.github.com/repos/DanielWinning/aurora-db/zipball/9222d64cc93cd4efc54920b9fa1149ed5f40f8e3",
+                "reference": "9222d64cc93cd4efc54920b9fa1149ed5f40f8e3",
                 "shasum": ""
             },
             "require": {
@@ -188,9 +188,9 @@
             "description": "A stand-alone database component built for the Luma framework.",
             "support": {
                 "issues": "https://github.com/DanielWinning/aurora-db/issues",
-                "source": "https://github.com/DanielWinning/aurora-db/tree/2.6.5"
+                "source": "https://github.com/DanielWinning/aurora-db/tree/2.6.6"
             },
-            "time": "2024-04-20T10:37:04+00:00"
+            "time": "2024-04-20T10:49:10+00:00"
         },
         {
             "name": "lumax/dependency-injection-component",
