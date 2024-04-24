@@ -17,7 +17,8 @@ class AuthenticatedPanel implements IBarPanel
         $username = $user?->getUsername();
 
         return sprintf(
-            '<span title="Authenticated">%s %s</span>',
+            '<span title="%s">%s %s</span>',
+            $username ? 'authenticated' : 'not authenticated',
             $svg,
             $username ? strtolower($username) : 'Not Authenticated'
         );
