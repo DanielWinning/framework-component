@@ -45,16 +45,17 @@ class LumaController
      * @param string $data
      * @param string $contentType
      * @param int $statusCode
+     * @param array $responseHeaders
      *
      * @return Response
      */
-    protected function respond(string $data, string $contentType = 'text/html', int $statusCode = 200): Response
+    protected function respond(string $data, string $contentType = 'text/html', int $statusCode = 200, array $responseHeaders = []): Response
     {
-        $responseHeaders = [
-            'Content-Type' => $contentType,
-        ];
+        if (!isset($responseHeaders['Content-Type'])) {
+            $responseHeaders['Content-Type'] = $contentType;
+        }
 
-        if (!Debugger::isEnabled()) {
+        if (!Debugger::isEnabled() && !isset($responseHeaders['Content-Length'])) {
             $responseHeaders['Content-Length'] = strlen($data);
         }
 
@@ -88,6 +89,18 @@ class LumaController
         }
 
         return $this->respond($this->templateEngine->renderToString($templatePath, $data));
+    }
+
+    /**
+     * @param string $path
+     *
+     * @return Response
+     */
+    protected function redirect(string $path): Response
+    {
+        return $this->respond('', 'text/html', 302, [
+            'Location' => $path,
+        ]);
     }
 
     /**
