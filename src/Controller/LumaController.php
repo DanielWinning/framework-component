@@ -2,10 +2,12 @@
 
 namespace Luma\Framework\Controller;
 
+use Luma\Framework\Luma;
 use Luma\HttpComponent\Response;
 use Luma\HttpComponent\StreamBuilder;
 use Latte\Bridges\Tracy\TracyExtension;
 use Latte\Engine;
+use Luma\SecurityComponent\Authentication\Interface\UserInterface;
 use Tracy\Debugger;
 
 class LumaController
@@ -14,12 +16,14 @@ class LumaController
     private static string $templateDirectory;
     private static string $cacheDirectory;
     private array $errors = [];
+    private ?UserInterface $currentUser;
 
     public function __construct()
     {
         $this->templateEngine = new Engine();
         $this->templateEngine->addExtension(new TracyExtension());
         $this->templateEngine->setTempDirectory(static::$cacheDirectory);
+        $this->currentUser = Luma::getLoggedInUser();
     }
 
     /**
@@ -79,6 +83,10 @@ class LumaController
             $data['errors'] = $this->getErrors();
         }
 
+        if (!isset($data['user'])) {
+            $data['user'] = $this->getLoggedInUser();
+        }
+
         return $this->respond($this->templateEngine->renderToString($templatePath, $data));
     }
 
@@ -108,5 +116,13 @@ class LumaController
     protected function getErrors(): array
     {
         return $this->errors;
+    }
+
+    /**
+     * @return UserInterface|null
+     */
+    protected function getLoggedInUser(): ?UserInterface
+    {
+        return $this->currentUser;
     }
 }
