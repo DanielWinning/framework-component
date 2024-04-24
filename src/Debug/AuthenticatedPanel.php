@@ -16,7 +16,7 @@ class AuthenticatedPanel implements IBarPanel
         $user = Luma::getLoggedInUser();
         $username = $user?->getUsername();
 
-        return sprintf('<span title="Authenticated">%s %s</span>', $svg, $username ?? 'Not Authenticated');
+        return sprintf('<span title="Authenticated">%s %s</span>', $svg, strtolower($username) ?? 'Not Authenticated');
     }
 
     /**
