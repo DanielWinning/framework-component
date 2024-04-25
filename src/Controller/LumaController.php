@@ -3,6 +3,7 @@
 namespace Luma\Framework\Controller;
 
 use Luma\Framework\Luma;
+use Luma\Framework\Messages\FlashMessage;
 use Luma\HttpComponent\Response;
 use Luma\HttpComponent\StreamBuilder;
 use Latte\Bridges\Tracy\TracyExtension;
@@ -80,6 +81,10 @@ class LumaController
             : sprintf('%s.latte', $templatePath);
         $templatePath = sprintf('%s/%s', static::$templateDirectory, $templatePath);
 
+        if (!isset($data['messages'])) {
+            $data['messages'] = $this->getFlashMessages();
+        }
+
         if (!isset($data['errors'])) {
             $data['errors'] = $this->getErrors();
         }
@@ -137,5 +142,28 @@ class LumaController
     protected function getLoggedInUser(): ?UserInterface
     {
         return $this->currentUser;
+    }
+
+    /**
+     * @param FlashMessage $message
+     * @param string $type
+     *
+     * @return void
+     */
+    protected function addFlashMessage(FlashMessage $message, string $type = 'info'): void
+    {
+        $_SESSION['messages'][$type] = $message;
+    }
+
+    /**
+     * @return array
+     */
+    protected function getFlashMessages(): array
+    {
+        $messages = $_SESSION['messages'] ?? [];
+
+        unset($_SESSION['messages']);
+
+        return $messages;
     }
 }
