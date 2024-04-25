@@ -152,7 +152,7 @@ class LumaController
      */
     protected function addFlashMessage(FlashMessage $message, string $type = 'info'): void
     {
-        $_SESSION['messages'][$type] = $message;
+        $_SESSION['messages'][$type][] = $message;
     }
 
     /**
