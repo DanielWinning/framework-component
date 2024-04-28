@@ -329,16 +329,16 @@
         },
         {
             "name": "lumax/security-component",
-            "version": "1.1.0",
+            "version": "1.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/DanielWinning/security-component.git",
-                "reference": "a011557bdb60c5e131bd120e237ddc10e0212274"
+                "reference": "ab06a66a6911e5ce89fa354b8ef5aa6a21efc919"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/DanielWinning/security-component/zipball/a011557bdb60c5e131bd120e237ddc10e0212274",
-                "reference": "a011557bdb60c5e131bd120e237ddc10e0212274",
+                "url": "https://api.github.com/repos/DanielWinning/security-component/zipball/ab06a66a6911e5ce89fa354b8ef5aa6a21efc919",
+                "reference": "ab06a66a6911e5ce89fa354b8ef5aa6a21efc919",
                 "shasum": ""
             },
             "require": {
@@ -361,9 +361,9 @@
             "description": "The Luma security and authentication component.",
             "support": {
                 "issues": "https://github.com/DanielWinning/security-component/issues",
-                "source": "https://github.com/DanielWinning/security-component/tree/1.1.0"
+                "source": "https://github.com/DanielWinning/security-component/tree/1.2.2"
             },
-            "time": "2024-04-18T09:17:53+00:00"
+            "time": "2024-04-28T10:11:03+00:00"
         },
         {
             "name": "phpoption/phpoption",
@@ -1695,16 +1695,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "10.5.19",
+            "version": "10.5.20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "c726f0de022368f6ed103e452a765d3304a996a4"
+                "reference": "547d314dc24ec1e177720d45c6263fb226cc2ae3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/c726f0de022368f6ed103e452a765d3304a996a4",
-                "reference": "c726f0de022368f6ed103e452a765d3304a996a4",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/547d314dc24ec1e177720d45c6263fb226cc2ae3",
+                "reference": "547d314dc24ec1e177720d45c6263fb226cc2ae3",
                 "shasum": ""
             },
             "require": {
@@ -1776,7 +1776,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
                 "security": "https://github.com/sebastianbergmann/phpunit/security/policy",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/10.5.19"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/10.5.20"
             },
             "funding": [
                 {
@@ -1792,7 +1792,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-04-17T14:06:18+00:00"
+            "time": "2024-04-24T06:32:35+00:00"
         },
         {
             "name": "sebastian/cli-parser",
