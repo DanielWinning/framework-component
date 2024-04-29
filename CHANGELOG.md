@@ -3,6 +3,12 @@
 ## [1.0.0] - 2024-04-29
 ### Added
 - Required `lumax/security-component`
+- Provide the current user to views when calling the `LumaController::render` method
+- Allow passing of custom response headers to `LumaController::respond`
+- Implement `LumaController::redirect` method
+- Add errors and flash messages, provided to views when calling `render`
+- Add database query panel and authenticated panel to debug bar
+- Provided static methods to get the current logged in user, authenticator and user provider on `Luma`
 
 ### Changed
 - N/A
@@ -17,7 +23,7 @@
 - N/A
 
 ### Security
-- Update dependencies
+- Updated `lumax/routing-component` and `lumax/dependency-injection-component`
 
 ---
 
