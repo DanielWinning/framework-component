@@ -1,6 +1,6 @@
 # Luma | Framework Component Changelog
 
-## [Unreleased]
+## [1.0.0] - 2024-04-29
 ### Added
 - Required `lumax/security-component`
 
@@ -17,7 +17,7 @@
 - N/A
 
 ### Security
-- Update `lumax/aurora-db` from`2.0.0` to `2.5.0`
+- Update dependencies
 
 ---
 
