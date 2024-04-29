@@ -140,14 +140,14 @@ class LumaTest extends TestCase
                     'path' => '/',
                     'method' => 'GET',
                 ],
-                'expected' => 'Index',
+                'expectedOutput' => 'Index',
             ],
             [
                 'data' => [
                     'path' => '/json',
                     'method' => 'GET',
                 ],
-                'expected' => '{"title":"JSON Response"}',
+                'expectedOutput' => '{"title":"JSON Response"}',
             ]
         ];
     }

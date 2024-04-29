@@ -1,5 +1,32 @@
 # Luma | Framework Component Changelog
 
+## [1.0.0] - 2024-04-29
+### Added
+- Required `lumax/security-component`
+- Provide the current user to views when calling the `LumaController::render` method
+- Allow passing of custom response headers to `LumaController::respond`
+- Implement `LumaController::redirect` method
+- Add errors and flash messages, provided to views when calling `render`
+- Add database query panel and authenticated panel to debug bar
+- Provided static methods to get the current logged in user, authenticator and user provider on `Luma`
+
+### Changed
+- N/A
+
+### Deprecated
+- N/A
+
+### Removed
+- Removed build pipeline/Jenkins setup
+
+### Fixed
+- N/A
+
+### Security
+- Updated `lumax/routing-component` and `lumax/dependency-injection-component`
+
+---
+
 ## [0.6.2] - 2024-03-18
 ### Added
 - N/A
@@ -18,6 +45,8 @@
 
 ### Security
 - Update `lumax/aurora-db` from`1.0.0` to `2.0.0`
+
+--- 
 
 ## [0.6.1] - 2024-03-17
 ### Added

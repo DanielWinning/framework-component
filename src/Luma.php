@@ -4,13 +4,19 @@ namespace Luma\Framework;
 
 use Luma\AuroraDatabase\DatabaseConnection;
 use Luma\AuroraDatabase\Model\Aurora;
+use Luma\AuroraDatabase\Utils\Collection;
 use Luma\DependencyInjectionComponent\DependencyContainer;
 use Luma\DependencyInjectionComponent\DependencyManager;
 use Luma\DependencyInjectionComponent\Exception\NotFoundException;
 use Luma\Framework\Controller\LumaController;
+use Luma\Framework\Debug\AuthenticatedPanel;
 use Luma\HttpComponent\Request;
 use Luma\HttpComponent\Response;
 use Luma\RoutingComponent\Router;
+use Luma\SecurityComponent\Authentication\Interface\AuthenticatorInterface;
+use Luma\SecurityComponent\Authentication\Interface\UserInterface;
+use Luma\SecurityComponent\Authentication\Interface\UserProviderInterface;
+use Tracy\Debugger;
 
 class Luma
 {
@@ -19,6 +25,8 @@ class Luma
     private Router $router;
 
     private string $configDirectory;
+
+    public static Collection $providers;
 
     /**
      * @throws NotFoundException|\Throwable
@@ -29,6 +37,7 @@ class Luma
         $this->dependencyManager = new DependencyManager($this->container);
         $this->router = new Router($this->container);
         $this->configDirectory = $configDirectory;
+        static::$providers = new Collection();
         LumaController::setDirectories($templateDirectory, $cacheDirectory);
 
         $this->load();
@@ -41,11 +50,14 @@ class Luma
      */
     private function load(): void
     {
+        Debugger::getBar()->addPanel(new AuthenticatedPanel());
+        Aurora::createQueryPanel();
         $this->establishDatabaseConnection();
         $this->dependencyManager
             ->loadDependenciesFromFile(sprintf('%s/services.yaml', $this->configDirectory));
         $this->router
             ->loadRoutesFromFile(sprintf('%s/routes.yaml', $this->configDirectory));
+        $this->loadSecurityProviders();
     }
 
     /**
@@ -67,11 +79,10 @@ class Luma
         Aurora::setDatabaseConnection(
             new DatabaseConnection(
                 sprintf(
-                    '%s:host=%s;port=%s;%s',
+                    '%s:host=%s;port=%s;',
                     $_ENV['DATABASE_DRIVER'] ?? 'mysql',
                     $_ENV['DATABASE_HOST'],
-                    $_ENV['DATABASE_PORT'],
-                    $_ENV['DATABASE_SCHEMA'] ?? ''
+                    $_ENV['DATABASE_PORT']
                 ),
                 $_ENV['DATABASE_USER'],
                 $_ENV['DATABASE_PASSWORD']
@@ -110,5 +121,55 @@ class Luma
     private function echoResponse(Response $response): void
     {
         echo $response->getBody()->getContents();
+    }
+
+    /**
+     * @return void
+     */
+    private function loadSecurityProviders(): void
+    {
+        $providersPath = sprintf('%s/security.php', $this->configDirectory);
+
+        if (!file_exists($providersPath)) {
+            return;
+        }
+
+        $providers = require_once $providersPath;
+
+        foreach ($providers as $provider => $arguments) {
+            if (class_exists($provider)) {
+                static::$providers->add(new $provider(...$arguments));
+            }
+        }
+    }
+
+    /**
+     * @return UserProviderInterface|null
+     */
+    public static function getUserProvider(): ?UserProviderInterface
+    {
+        return static::$providers->find(function ($provider) {
+            return $provider instanceof UserProviderInterface;
+        });
+    }
+
+    /**
+     * @return AuthenticatorInterface|null
+     */
+    public static function getAuthenticator(): ?AuthenticatorInterface
+    {
+        return static::$providers->find(function ($provider) {
+            return $provider instanceof AuthenticatorInterface;
+        });
+    }
+
+    /**
+     * @return UserInterface|null
+     */
+    public static function getLoggedInUser(): ?UserInterface
+    {
+        $userProvider = static::getUserProvider();
+
+        return $userProvider?->getUserFromSession();
     }
 }
