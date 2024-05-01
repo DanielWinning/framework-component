@@ -1,5 +1,27 @@
 # Luma | Framework Component Changelog
 
+## [1.1.0] - 2024-04-29
+### Added
+- Ensure the currently logged-in user is now refreshed on every request
+- Provide route protection attributes for controller methods
+
+### Changed
+- N/A
+
+### Deprecated
+- N/A
+
+### Removed
+- N/A
+
+### Fixed
+- N/A
+
+### Security
+- Updated dependencies
+
+---
+
 ## [1.0.0] - 2024-04-29
 ### Added
 - Required `lumax/security-component`

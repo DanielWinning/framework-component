@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "71ebd41f455cd5c5d0284c655160bb76",
+    "content-hash": "d59c019f8f0270464e75c006b1497571",
     "packages": [
         {
             "name": "graham-campbell/result-type",
@@ -70,16 +70,16 @@
         },
         {
             "name": "latte/latte",
-            "version": "v3.0.14",
+            "version": "v3.0.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/latte.git",
-                "reference": "1ab054b1af13ee647ccbc5bf2673a3483a7457d5"
+                "reference": "b4807f2f6ef774adb946da1b174e1e85171a9101"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/latte/zipball/1ab054b1af13ee647ccbc5bf2673a3483a7457d5",
-                "reference": "1ab054b1af13ee647ccbc5bf2673a3483a7457d5",
+                "url": "https://api.github.com/repos/nette/latte/zipball/b4807f2f6ef774adb946da1b174e1e85171a9101",
+                "reference": "b4807f2f6ef774adb946da1b174e1e85171a9101",
                 "shasum": ""
             },
             "require": {
@@ -149,22 +149,22 @@
             ],
             "support": {
                 "issues": "https://github.com/nette/latte/issues",
-                "source": "https://github.com/nette/latte/tree/v3.0.14"
+                "source": "https://github.com/nette/latte/tree/v3.0.15"
             },
-            "time": "2024-03-19T09:03:26+00:00"
+            "time": "2024-04-30T05:57:23+00:00"
         },
         {
             "name": "lumax/aurora-db",
-            "version": "2.6.11",
+            "version": "2.6.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/DanielWinning/aurora-db.git",
-                "reference": "da71b714369c53bcf528293169e79a806ddf4f6a"
+                "reference": "86a8da94f540fb21cbff12abb1b46f986b980c82"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/DanielWinning/aurora-db/zipball/da71b714369c53bcf528293169e79a806ddf4f6a",
-                "reference": "da71b714369c53bcf528293169e79a806ddf4f6a",
+                "url": "https://api.github.com/repos/DanielWinning/aurora-db/zipball/86a8da94f540fb21cbff12abb1b46f986b980c82",
+                "reference": "86a8da94f540fb21cbff12abb1b46f986b980c82",
                 "shasum": ""
             },
             "require": {
@@ -188,9 +188,9 @@
             "description": "A stand-alone database component built for the Luma framework.",
             "support": {
                 "issues": "https://github.com/DanielWinning/aurora-db/issues",
-                "source": "https://github.com/DanielWinning/aurora-db/tree/2.6.11"
+                "source": "https://github.com/DanielWinning/aurora-db/tree/2.6.12"
             },
-            "time": "2024-04-20T12:27:37+00:00"
+            "time": "2024-05-01T21:08:24+00:00"
         },
         {
             "name": "lumax/dependency-injection-component",
@@ -238,16 +238,16 @@
         },
         {
             "name": "lumax/http-component",
-            "version": "2.2.0",
+            "version": "2.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/DanielWinning/http-component.git",
-                "reference": "d0066e5e427f3299b698388ea711518fc4fa1779"
+                "reference": "9206d3ec3b52b167172add64d7cf05af226eea55"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/DanielWinning/http-component/zipball/d0066e5e427f3299b698388ea711518fc4fa1779",
-                "reference": "d0066e5e427f3299b698388ea711518fc4fa1779",
+                "url": "https://api.github.com/repos/DanielWinning/http-component/zipball/9206d3ec3b52b167172add64d7cf05af226eea55",
+                "reference": "9206d3ec3b52b167172add64d7cf05af226eea55",
                 "shasum": ""
             },
             "require": {
@@ -277,26 +277,28 @@
             "description": "A component for handling HTTP Requests/Responses",
             "support": {
                 "issues": "https://github.com/DanielWinning/http-component/issues",
-                "source": "https://github.com/DanielWinning/http-component/tree/2.2.0"
+                "source": "https://github.com/DanielWinning/http-component/tree/2.2.1"
             },
-            "time": "2024-04-29T20:04:27+00:00"
+            "time": "2024-04-29T23:43:21+00:00"
         },
         {
             "name": "lumax/routing-component",
-            "version": "1.4.2",
+            "version": "1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/DanielWinning/routing-component.git",
-                "reference": "e5260ad5767b0874b961e95947c86368c08d87e9"
+                "reference": "8e0b773c527aa83bd5a6efbec05e57fda28c9be0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/DanielWinning/routing-component/zipball/e5260ad5767b0874b961e95947c86368c08d87e9",
-                "reference": "e5260ad5767b0874b961e95947c86368c08d87e9",
+                "url": "https://api.github.com/repos/DanielWinning/routing-component/zipball/8e0b773c527aa83bd5a6efbec05e57fda28c9be0",
+                "reference": "8e0b773c527aa83bd5a6efbec05e57fda28c9be0",
                 "shasum": ""
             },
             "require": {
-                "lumax/http-component": "^2.0",
+                "lumax/framework-component": "^1.0",
+                "lumax/http-component": "^2.2",
+                "lumax/security-component": "^1.3",
                 "psr/container": "^2.0",
                 "psr/http-message": "^2.0",
                 "symfony/yaml": "^6.3"
@@ -323,22 +325,22 @@
             "description": "A dynamic PHP Routing Component.",
             "support": {
                 "issues": "https://github.com/DanielWinning/routing-component/issues",
-                "source": "https://github.com/DanielWinning/routing-component/tree/1.4.2"
+                "source": "https://github.com/DanielWinning/routing-component/tree/1.5.0"
             },
-            "time": "2024-04-17T21:57:25+00:00"
+            "time": "2024-05-01T23:19:38+00:00"
         },
         {
             "name": "lumax/security-component",
-            "version": "1.3.0",
+            "version": "1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/DanielWinning/security-component.git",
-                "reference": "03b8060e75f8af44530288948f0ec43552ec1b8c"
+                "reference": "43087ae29b1266d3f776e719c46e1eb63dc70a42"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/DanielWinning/security-component/zipball/03b8060e75f8af44530288948f0ec43552ec1b8c",
-                "reference": "03b8060e75f8af44530288948f0ec43552ec1b8c",
+                "url": "https://api.github.com/repos/DanielWinning/security-component/zipball/43087ae29b1266d3f776e719c46e1eb63dc70a42",
+                "reference": "43087ae29b1266d3f776e719c46e1eb63dc70a42",
                 "shasum": ""
             },
             "require": {
@@ -361,9 +363,9 @@
             "description": "The Luma security and authentication component.",
             "support": {
                 "issues": "https://github.com/DanielWinning/security-component/issues",
-                "source": "https://github.com/DanielWinning/security-component/tree/1.3.0"
+                "source": "https://github.com/DanielWinning/security-component/tree/1.4.0"
             },
-            "time": "2024-04-28T17:12:21+00:00"
+            "time": "2024-05-01T23:37:32+00:00"
         },
         {
             "name": "phpoption/phpoption",
