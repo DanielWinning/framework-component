@@ -103,8 +103,18 @@ class LumaTest extends TestCase
     }
 
     /**
+     * @return void
+     */
+    public function testGetConfigParam(): void
+    {
+        $this->assertEquals('Test string', Luma::getConfigParam('test_string'));
+        $this->assertEquals(1, Luma::getConfigParam('test_integer'));
+    }
+
+    /**
      * @param string $path
      * @param string $method
+     *
      * @return Request|MockObject
      *
      * @throws Exception
