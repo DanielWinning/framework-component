@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d59c019f8f0270464e75c006b1497571",
+    "content-hash": "11d8aed4b3e4fa3eda96162db9ba0543",
     "packages": [
         {
             "name": "graham-campbell/result-type",
@@ -283,16 +283,16 @@
         },
         {
             "name": "lumax/routing-component",
-            "version": "1.5.0",
+            "version": "1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/DanielWinning/routing-component.git",
-                "reference": "8e0b773c527aa83bd5a6efbec05e57fda28c9be0"
+                "reference": "fa5efd6f2c8cd0d8282010d918c67386d476f685"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/DanielWinning/routing-component/zipball/8e0b773c527aa83bd5a6efbec05e57fda28c9be0",
-                "reference": "8e0b773c527aa83bd5a6efbec05e57fda28c9be0",
+                "url": "https://api.github.com/repos/DanielWinning/routing-component/zipball/fa5efd6f2c8cd0d8282010d918c67386d476f685",
+                "reference": "fa5efd6f2c8cd0d8282010d918c67386d476f685",
                 "shasum": ""
             },
             "require": {
@@ -325,9 +325,9 @@
             "description": "A dynamic PHP Routing Component.",
             "support": {
                 "issues": "https://github.com/DanielWinning/routing-component/issues",
-                "source": "https://github.com/DanielWinning/routing-component/tree/1.5.0"
+                "source": "https://github.com/DanielWinning/routing-component/tree/1.6.0"
             },
-            "time": "2024-05-01T23:19:38+00:00"
+            "time": "2024-05-05T10:39:31+00:00"
         },
         {
             "name": "lumax/security-component",
@@ -602,16 +602,16 @@
         },
         {
             "name": "symfony/deprecation-contracts",
-            "version": "v3.4.0",
+            "version": "v3.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/deprecation-contracts.git",
-                "reference": "7c3aff79d10325257a001fcf92d991f24fc967cf"
+                "reference": "0e0d29ce1f20deffb4ab1b016a7257c4f1e789a1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/deprecation-contracts/zipball/7c3aff79d10325257a001fcf92d991f24fc967cf",
-                "reference": "7c3aff79d10325257a001fcf92d991f24fc967cf",
+                "url": "https://api.github.com/repos/symfony/deprecation-contracts/zipball/0e0d29ce1f20deffb4ab1b016a7257c4f1e789a1",
+                "reference": "0e0d29ce1f20deffb4ab1b016a7257c4f1e789a1",
                 "shasum": ""
             },
             "require": {
@@ -620,7 +620,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "3.4-dev"
+                    "dev-main": "3.5-dev"
                 },
                 "thanks": {
                     "name": "symfony/contracts",
@@ -649,7 +649,7 @@
             "description": "A generic function and convention to trigger deprecation notices",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/deprecation-contracts/tree/v3.4.0"
+                "source": "https://github.com/symfony/deprecation-contracts/tree/v3.5.0"
             },
             "funding": [
                 {
@@ -665,7 +665,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-05-23T14:45:45+00:00"
+            "time": "2024-04-18T09:32:20+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",

@@ -1,5 +1,26 @@
 # Luma | Framework Component Changelog
 
+## [1.2.0] - 2024-05-05
+### Added
+- Added `config.yaml` and `Luma::getConfigParam`
+
+### Changed
+- N/A
+
+### Deprecated
+- N/A
+
+### Removed
+- N/A
+
+### Fixed
+- N/A
+
+### Security
+- Updated dependencies
+
+---
+
 ## [1.1.0] - 2024-04-29
 ### Added
 - Ensure the currently logged-in user is now refreshed on every request

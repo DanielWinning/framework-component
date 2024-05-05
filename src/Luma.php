@@ -16,6 +16,7 @@ use Luma\RoutingComponent\Router;
 use Luma\SecurityComponent\Authentication\Interface\AuthenticatorInterface;
 use Luma\SecurityComponent\Authentication\Interface\UserInterface;
 use Luma\SecurityComponent\Authentication\Interface\UserProviderInterface;
+use Symfony\Component\Yaml\Yaml;
 use Tracy\Debugger;
 
 class Luma
@@ -23,9 +24,9 @@ class Luma
     private DependencyContainer $container;
     private DependencyManager $dependencyManager;
     private Router $router;
-
     private string $configDirectory;
 
+    private static array $config;
     public static Collection $providers;
 
     /**
@@ -37,6 +38,11 @@ class Luma
         $this->dependencyManager = new DependencyManager($this->container);
         $this->router = new Router($this->container);
         $this->configDirectory = $configDirectory;
+
+        $configYamlPath = sprintf('%s/%s', $configDirectory, 'config.yaml');
+        static::$config = file_exists($configYamlPath)
+            ? Yaml::parseFile($configYamlPath)
+            : [];
         static::$providers = new Collection();
         LumaController::setDirectories($templateDirectory, $cacheDirectory);
 
@@ -175,5 +181,15 @@ class Luma
         $userProvider = static::getUserProvider();
 
         return $userProvider?->getUserFromSession();
+    }
+
+    /**
+     * @param string $parameterName
+     *
+     * @return mixed
+     */
+    public static function getConfigParam(string $parameterName): mixed
+    {
+        return static::$config[$parameterName] ?? null;
     }
 }
