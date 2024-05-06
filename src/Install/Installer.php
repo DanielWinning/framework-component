@@ -12,6 +12,7 @@ class Installer
         self::updateGitignore();
         self::updateComposerJson();
         self::updatePackageJson();
+        self::copyEnv();
         self::installAssets();
     }
 
@@ -32,7 +33,7 @@ class Installer
      */
     private static function updateComposerJson(): void
     {
-        $composerJsonPath = self::getFilepath('composer');
+        $composerJsonPath = self::getJsonFilepath('composer');
         $composerText = file_get_contents($composerJsonPath);
         $composerJson = json_decode($composerText);
 
@@ -48,7 +49,7 @@ class Installer
      */
     private static function updatePackageJson(): void
     {
-        $packageJsonPath = self::getFilepath('package');
+        $packageJsonPath = self::getJsonFilepath('package');
         $packageText = file_get_contents($packageJsonPath);
         $packageJson = json_decode($packageText);
 
@@ -66,6 +67,20 @@ class Installer
     }
 
     /**
+     * @return void
+     */
+    private static function copyEnv(): void
+    {
+        $configDirectory = sprintf('%s/config', self::projectDirectory());
+        $source = sprintf('%s/.env.example', $configDirectory);
+        $target = sprintf('%s/.env', $configDirectory);
+
+        if (!file_exists($target) && file_exists($source)) {
+            copy($source, $target);
+        }
+    }
+
+    /**
      * @return string
      */
     private static function projectDirectory(): string
@@ -78,7 +93,7 @@ class Installer
      *
      * @return string
      */
-    private static function getFilepath(string $filename): string
+    private static function getJsonFilepath(string $filename): string
     {
         return sprintf('%s/%s.json', self::projectDirectory(), $filename);
     }

@@ -32,6 +32,12 @@ class LumaTest extends TestCase
         $this->configDirectory = dirname(__DIR__) . '/config';
         $this->templateDirectory = dirname(__DIR__) . '/views';
 
+        $cachedConfig = sprintf('%s/config/config.php', $this->cacheDirectory);
+
+        if (file_exists($cachedConfig)) {
+            unlink($cachedConfig);
+        }
+
         (Dotenv::createImmutable($this->configDirectory))->safeLoad();
 
         $this->testClass = new Luma($this->configDirectory, $this->templateDirectory, $this->cacheDirectory);

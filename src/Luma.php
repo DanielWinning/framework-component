@@ -25,6 +25,7 @@ class Luma
     private DependencyManager $dependencyManager;
     private Router $router;
     private string $configDirectory;
+    private string $cacheDirectory;
 
     private static array $config;
     public static Collection $providers;
@@ -37,14 +38,10 @@ class Luma
         $this->container = new DependencyContainer();
         $this->dependencyManager = new DependencyManager($this->container);
         $this->router = new Router($this->container);
-        $this->configDirectory = $configDirectory;
-
-        $configYamlPath = sprintf('%s/%s', $configDirectory, 'config.yaml');
-        static::$config = file_exists($configYamlPath)
-            ? Yaml::parseFile($configYamlPath)
-            : [];
+        $this->cacheDirectory = $cacheDirectory;
+        $this->setConfig($configDirectory);
         static::$providers = new Collection();
-        LumaController::setDirectories($templateDirectory, $cacheDirectory);
+        LumaController::setDirectories($templateDirectory, sprintf('%s/views', $cacheDirectory));
 
         $this->load();
     }
@@ -68,6 +65,41 @@ class Luma
         if (self::getLoggedInUser()) {
             self::getLoggedInUser()::refresh();
         }
+    }
+
+    /**
+     * @param string $configDirectory
+     *
+     * @return void
+     */
+    private function setConfig(string $configDirectory): void
+    {
+        $this->configDirectory = $configDirectory;
+        $cachedConfigDirectory = sprintf('%s/config', $this->cacheDirectory);
+        $cachedConfigPath = sprintf('%s/config.php', $cachedConfigDirectory);
+
+        if (file_exists($cachedConfigPath)) {
+            static::$config = require_once $cachedConfigPath;
+
+            return;
+        }
+
+        $configYamlPath = sprintf('%s/%s', $this->configDirectory, 'config.yaml');
+
+        if (file_exists($configYamlPath) && file_get_contents($configYamlPath) !== '') {
+            static::$config = Yaml::parseFile($configYamlPath);
+
+            if (!file_exists($cachedConfigDirectory)) {
+                mkdir($cachedConfigDirectory);
+            }
+
+            $configPhp = sprintf('<?php return %s;', var_export(static::$config, true));
+            file_put_contents($cachedConfigPath, $configPhp);
+
+            return;
+        }
+
+        static::$config = [];
     }
 
     /**
