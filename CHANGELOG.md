@@ -1,8 +1,32 @@
 # Luma | Framework Component Changelog
 
+## [1.3.0] - 2024-05-06
+### Added
+- Added `copyEnv` step to `Installer` - copies `config/.env.example` to `config/.env`.
+- Added `CacheClearCommand` to work alongside planned `bin/luma` file.
+- Now caching config parameters.
+- Added `symfony/command`
+
+### Changed
+- N/A
+
+### Deprecated
+- N/A
+
+### Removed
+- N/A
+
+### Fixed
+- Updated the view cache directory to `cache/views`.
+
+### Security
+- N/A
+
+---
+
 ## [1.2.0] - 2024-05-05
 ### Added
-- Added `config.yaml` and `Luma::getConfigParam`
+- Added `Luma::getConfigParam` and support for config files
 
 ### Changed
 - N/A
@@ -51,7 +75,7 @@
 - Implement `LumaController::redirect` method
 - Add errors and flash messages, provided to views when calling `render`
 - Add database query panel and authenticated panel to debug bar
-- Provided static methods to get the current logged in user, authenticator and user provider on `Luma`
+- Provided static methods to get the current logged-in user, authenticator and user provider on `Luma`
 
 ### Changed
 - N/A
