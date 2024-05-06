@@ -40,6 +40,8 @@ class Luma
         $this->router = new Router($this->container);
         $this->cacheDirectory = $cacheDirectory;
         $this->setConfig($configDirectory);
+        Debugger::enable(self::getConfigParam('app.mode') === 'production');
+        Debugger::$logDirectory = sprintf('%s/log', dirname($configDirectory));
         static::$providers = new Collection();
         LumaController::setDirectories($templateDirectory, sprintf('%s/views', $cacheDirectory));
 

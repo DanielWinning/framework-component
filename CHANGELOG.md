@@ -1,5 +1,26 @@
 # Luma | Framework Component Changelog
 
+## [1.3.2] - 2024-05-06
+### Added
+- Start debugger inside Luma constructor to clean up create project code.
+
+### Changed
+- N/A
+
+### Deprecated
+- N/A
+
+### Removed
+- N/A
+
+### Fixed
+- N/A
+
+### Security
+- N/A
+
+---
+
 ## [1.3.1] - 2024-05-06
 ### Added
 - N/A
