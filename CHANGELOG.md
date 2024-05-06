@@ -1,5 +1,27 @@
 # Luma | Framework Component Changelog
 
+## [1.3.1] - 2024-05-06
+### Added
+- N/A
+
+### Changed
+- N/A
+
+### Deprecated
+- N/A
+
+### Removed
+- N/A
+
+### Fixed
+- Fixed issue with `CacheClearCommand` name not being set.
+- Fixed issue with `CacheClearCommand` not deleting files in subdirectories.
+
+### Security
+- N/A
+
+---
+
 ## [1.3.0] - 2024-05-06
 ### Added
 - Added `copyEnv` step to `Installer` - copies `config/.env.example` to `config/.env`.
