@@ -2,14 +2,15 @@
 
 namespace Luma\Framework\Commands;
 
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Style\SymfonyStyle;
 
+#[AsCommand(name: 'luma:cache:clear', description: 'Clears cached files.')]
 class CacheClearCommand extends Command
 {
-    protected static string $defaultName = 'luma:cache:clear';
-
     /**
      * @return void
      */
@@ -26,20 +27,27 @@ class CacheClearCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
+        $style = new SymfonyStyle($input, $output);
         $cacheDirectory = sprintf('%s/cache', dirname(__DIR__, 5));
 
         if (file_exists($cacheDirectory)) {
-            $files = glob($cacheDirectory . '/{,.}[!.,!..]*', GLOB_BRACE | GLOB_MARK);
+            $directory = new \RecursiveDirectoryIterator($cacheDirectory, \FilesystemIterator::SKIP_DOTS);
+            $iterator = new \RecursiveIteratorIterator($directory);
+            $files = new \RegexIterator($iterator, '/^.+(\.php|\.php\.lock)$/i', \RegexIterator::GET_MATCH);
 
             foreach ($files as $file) {
-                if (is_file($file) && basename($file) !== '.gitignore') {
-                    unlink($file);
+                $filePath = $file[0];
+
+                if (basename($filePath) !== '.gitignore') {
+                    unlink($filePath);
                 }
             }
 
-            $output->writeln('Cache cleared successfully.');
+            $style->success('All caches cleared successfully.');
         } else {
-            $output->writeln('Cache directory does not exist.');
+            $style->error('Cache directory does not exist.');
+
+            return Command::FAILURE;
         }
 
         return Command::SUCCESS;
