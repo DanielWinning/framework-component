@@ -1,5 +1,26 @@
 # Luma | Framework Component Changelog
 
+## [1.4.0] - 2024-08-23
+### Added
+- Added new `DatabaseConnectionHelper` class
+
+### Changed
+- N/A
+
+### Deprecated
+- N/A
+
+### Removed
+- N/A
+
+### Fixed
+- N/A
+
+### Security
+- N/A
+
+---
+
 ## [1.3.3] - 2024-07-16
 ### Added
 - N/A
