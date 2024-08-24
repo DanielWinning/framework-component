@@ -54,7 +54,7 @@ class CacheClearCommand extends Command
         if (file_exists($logDirectory)) {
             $directory = new \RecursiveDirectoryIterator($logDirectory, \FilesystemIterator::SKIP_DOTS);
             $iterator = new \RecursiveIteratorIterator($directory);
-            $files = new \RegexIterator($iterator, '/^.+(\.html|\.html\.log)$/i', \RegexIterator::GET_MATCH);
+            $files = new \RegexIterator($iterator, '/^.+(\.html|\.log)$/i', \RegexIterator::GET_MATCH);
 
             foreach ($files as $file) {
                 $filePath = $file[0];
