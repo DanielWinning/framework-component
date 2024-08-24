@@ -59,7 +59,7 @@ class CacheClearCommand extends Command
             foreach ($files as $file) {
                 $filePath = $file[0];
 
-                if (basename($file) !== '.gitignore') {
+                if (basename($filePath) !== '.gitignore') {
                     unlink($filePath);
                 }
             }
