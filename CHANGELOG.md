@@ -1,5 +1,26 @@
 # Luma | Framework Component Changelog
 
+## [1.5.0] - 2024-08-24
+### Added
+- N/A
+
+### Changed
+- Updated `luma:cache:clear` command to also clear log files
+
+### Deprecated
+- N/A
+
+### Removed
+- N/A
+
+### Fixed
+- N/A
+
+### Security
+- N/A
+
+---
+
 ## [1.4.0] - 2024-08-23
 ### Added
 - Added new `DatabaseConnectionHelper` class
