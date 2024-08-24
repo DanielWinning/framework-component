@@ -1,5 +1,26 @@
 # Luma | Framework Component Changelog
 
+## [1.5.2] - 2024-08-24
+### Added
+- N/A
+
+### Changed
+- N/A
+
+### Deprecated
+- N/A
+
+### Removed
+- N/A
+
+### Fixed
+- Hotfix for `luma:cache:clear` command not matching `.log` files
+
+### Security
+- N/A
+
+---
+
 ## [1.5.1] - 2024-08-24
 ### Added
 - N/A
