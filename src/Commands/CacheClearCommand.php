@@ -29,6 +29,7 @@ class CacheClearCommand extends Command
     {
         $style = new SymfonyStyle($input, $output);
         $cacheDirectory = sprintf('%s/cache', dirname(__DIR__, 5));
+        $logDirectory = sprintf('%s/log', dirname(__DIR__, 5));
 
         if (file_exists($cacheDirectory)) {
             $directory = new \RecursiveDirectoryIterator($cacheDirectory, \FilesystemIterator::SKIP_DOTS);
@@ -43,11 +44,27 @@ class CacheClearCommand extends Command
                 }
             }
 
-            $style->success('All caches cleared successfully.');
+            $style->success('All caches cleared successfully');
         } else {
-            $style->error('Cache directory does not exist.');
+            $style->error('Cache directory does not exist');
 
             return Command::FAILURE;
+        }
+
+        if (file_exists($logDirectory)) {
+            $directory = new \RecursiveDirectoryIterator($logDirectory, \FilesystemIterator::SKIP_DOTS);
+            $iterator = new \RecursiveIteratorIterator($directory);
+            $files = new \RegexIterator($iterator, '/^.+(\.html|\.html\.log)$/i', \RegexIterator::GET_MATCH);
+
+            foreach ($files as $file) {
+                $filePath = $file[0];
+
+                if (basename($file) !== '.gitignore') {
+                    unlink($filePath);
+                }
+            }
+
+            $style->success('All log files cleared successfully');
         }
 
         return Command::SUCCESS;
