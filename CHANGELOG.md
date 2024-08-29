@@ -1,5 +1,26 @@
 # Luma | Framework Component Changelog
 
+## [1.6.0] - 2024-08-29
+### Added
+- Add new `MiddlewareInterface` and `MiddlewareHandler`
+
+### Changed
+- N/A
+
+### Deprecated
+- N/A
+
+### Removed
+- N/A
+
+### Fixed
+- N/A
+
+### Security
+- N/A
+
+---
+
 ## [1.5.2] - 2024-08-24
 ### Added
 - N/A
