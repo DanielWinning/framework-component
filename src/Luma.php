@@ -134,6 +134,7 @@ class Luma
         $this->router
             ->loadRoutesFromFile(sprintf('%s/routes.yaml', $this->configDirectory));
         $this->loadSecurityProviders();
+        $this->loadMiddleware();
 
         if (self::getLoggedInUser()) {
             self::getLoggedInUser()::refresh();
