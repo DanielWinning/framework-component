@@ -10,6 +10,8 @@ use Luma\DependencyInjectionComponent\DependencyManager;
 use Luma\DependencyInjectionComponent\Exception\NotFoundException;
 use Luma\Framework\Controller\LumaController;
 use Luma\Framework\Debug\AuthenticatedPanel;
+use Luma\Framework\Middleware\MiddlewareHandler;
+use Luma\Framework\Middleware\MiddlewareInterface;
 use Luma\HttpComponent\Request;
 use Luma\HttpComponent\Response;
 use Luma\RoutingComponent\Router;
@@ -29,6 +31,7 @@ class Luma
 
     private static array $config;
     public static Collection $providers;
+    private MiddlewareHandler $middlewareHandler;
 
     /**
      * @throws NotFoundException|\Throwable
@@ -38,6 +41,7 @@ class Luma
         $this->container = new DependencyContainer();
         $this->dependencyManager = new DependencyManager($this->container);
         $this->router = new Router($this->container);
+        $this->middlewareHandler = new MiddlewareHandler();
         $this->cacheDirectory = $cacheDirectory;
         $this->setConfig($configDirectory);
         Debugger::enable(self::getConfigParam('app.mode') === 'production');
@@ -46,6 +50,73 @@ class Luma
         LumaController::setDirectories($templateDirectory, sprintf('%s/views', $cacheDirectory));
 
         $this->load();
+    }
+
+    /**
+     * @param Request $request
+     *
+     * @return void
+     *
+     * @throws \ReflectionException|\Throwable
+     */
+    public function run(Request $request): void
+    {
+        $response = $this->middlewareHandler->handle($request, new Response());
+
+        if ($response->getStatusCode() === 200) {
+            $response = $this->router->handleRequest($request);
+        }
+
+        http_response_code($response->getStatusCode());
+        header(sprintf('HTTP/%s %s %s', $response->getProtocolVersion(), $response->getStatusCode(), $response->getReasonPhrase()));
+
+        foreach ($response->getHeaders() as $name => $values) {
+            foreach ($values as $value) {
+                header(sprintf('%s: %s', $name, $value), false);
+            }
+        }
+
+        $this->echoResponse($response);
+    }
+
+    /**
+     * @return UserProviderInterface|null
+     */
+    public static function getUserProvider(): ?UserProviderInterface
+    {
+        return static::$providers->find(function ($provider) {
+            return $provider instanceof UserProviderInterface;
+        });
+    }
+
+    /**
+     * @return AuthenticatorInterface|null
+     */
+    public static function getAuthenticator(): ?AuthenticatorInterface
+    {
+        return static::$providers->find(function ($provider) {
+            return $provider instanceof AuthenticatorInterface;
+        });
+    }
+
+    /**
+     * @return UserInterface|null
+     */
+    public static function getLoggedInUser(): ?UserInterface
+    {
+        $userProvider = static::getUserProvider();
+
+        return $userProvider?->getUserFromSession();
+    }
+
+    /**
+     * @param string $parameterName
+     *
+     * @return mixed
+     */
+    public static function getConfigParam(string $parameterName): mixed
+    {
+        return static::$config[$parameterName] ?? null;
     }
 
     /**
@@ -135,29 +206,6 @@ class Luma
     }
 
     /**
-     * @param Request $request
-     *
-     * @return void
-     *
-     * @throws \ReflectionException|\Throwable
-     */
-    public function run(Request $request): void
-    {
-        $response = $this->router->handleRequest($request);
-
-        http_response_code($response->getStatusCode());
-        header(sprintf('HTTP/%s %s %s', $response->getProtocolVersion(), $response->getStatusCode(), $response->getReasonPhrase()));
-
-        foreach ($response->getHeaders() as $name => $values) {
-            foreach ($values as $value) {
-                header(sprintf('%s: %s', $name, $value), false);
-            }
-        }
-
-        $this->echoResponse($response);
-    }
-
-    /**
      * @param Response $response
      *
      * @return void
@@ -187,43 +235,20 @@ class Luma
         }
     }
 
-    /**
-     * @return UserProviderInterface|null
-     */
-    public static function getUserProvider(): ?UserProviderInterface
+    private function loadMiddleware(): void
     {
-        return static::$providers->find(function ($provider) {
-            return $provider instanceof UserProviderInterface;
-        });
-    }
+        $middlewarePath = sprintf('%s/middleware.php', $this->configDirectory);
 
-    /**
-     * @return AuthenticatorInterface|null
-     */
-    public static function getAuthenticator(): ?AuthenticatorInterface
-    {
-        return static::$providers->find(function ($provider) {
-            return $provider instanceof AuthenticatorInterface;
-        });
-    }
+        if (!file_exists($middlewarePath)) {
+            return;
+        }
 
-    /**
-     * @return UserInterface|null
-     */
-    public static function getLoggedInUser(): ?UserInterface
-    {
-        $userProvider = static::getUserProvider();
+        $middleware = require_once $middlewarePath;
 
-        return $userProvider?->getUserFromSession();
-    }
-
-    /**
-     * @param string $parameterName
-     *
-     * @return mixed
-     */
-    public static function getConfigParam(string $parameterName): mixed
-    {
-        return static::$config[$parameterName] ?? null;
+        foreach ($middleware as $mw) {
+            if ($mw instanceof MiddlewareInterface) {
+                $this->middlewareHandler->addMiddleware($mw);
+            }
+        }
     }
 }
