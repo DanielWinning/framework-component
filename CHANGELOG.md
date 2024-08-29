@@ -1,5 +1,26 @@
 # Luma | Framework Component Changelog
 
+## [1.6.1] - 2024-08-29
+### Added
+- N/A
+
+### Changed
+- N/A
+
+### Deprecated
+- N/A
+
+### Removed
+- N/A
+
+### Fixed
+- Call `loadMiddleware` method inside `Luma::load`
+
+### Security
+- N/A
+
+---
+
 ## [1.6.0] - 2024-08-29
 ### Added
 - Add new `MiddlewareInterface` and `MiddlewareHandler`
