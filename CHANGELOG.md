@@ -1,5 +1,26 @@
 # Luma | Framework Component Changelog
 
+## [Unreleased]
+### Added
+- Add `phpstan` for code analysis
+
+### Changed
+- Use `require` over `require_once` for Luma config setup
+
+### Deprecated
+- N/A
+
+### Removed
+- N/A
+
+### Fixed
+- N/A
+
+### Security
+- N/A
+
+---
+
 ## [1.6.1] - 2024-08-29
 ### Added
 - N/A

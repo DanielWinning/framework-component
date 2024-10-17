@@ -2,7 +2,7 @@ CREATE SCHEMA IF NOT EXISTS FrameworkComponentTest;
 
 USE FrameworkComponentTest;
 
-DROP TABLE IF EXISTS Article, User;
+DROP TABLE IF EXISTS Article, User, Permission, Role, RoleUser, PermissionRole;
 
 CREATE TABLE User (
     intUserId INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,

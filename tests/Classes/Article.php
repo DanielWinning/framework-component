@@ -7,7 +7,7 @@ use Luma\AuroraDatabase\Attributes\Identifier;
 use Luma\AuroraDatabase\Attributes\Schema;
 use Luma\AuroraDatabase\Model\Aurora;
 
-#[Schema('DatabaseComponentTest')]
+#[Schema('FrameworkComponentTest')]
 class Article extends Aurora
 {
     #[Identifier]

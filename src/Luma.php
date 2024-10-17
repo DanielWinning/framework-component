@@ -153,7 +153,7 @@ class Luma
         $cachedConfigPath = sprintf('%s/config.php', $cachedConfigDirectory);
 
         if (file_exists($cachedConfigPath)) {
-            static::$config = require_once $cachedConfigPath;
+            static::$config = require $cachedConfigPath;
 
             return;
         }
@@ -227,7 +227,7 @@ class Luma
             return;
         }
 
-        $providers = require_once $providersPath;
+        $providers = require $providersPath;
 
         foreach ($providers as $provider => $arguments) {
             if (class_exists($provider)) {
@@ -236,6 +236,9 @@ class Luma
         }
     }
 
+    /**
+     * @return void
+     */
     private function loadMiddleware(): void
     {
         $middlewarePath = sprintf('%s/middleware.php', $this->configDirectory);
@@ -244,7 +247,7 @@ class Luma
             return;
         }
 
-        $middleware = require_once $middlewarePath;
+        $middleware = require $middlewarePath;
 
         foreach ($middleware as $mw) {
             if ($mw instanceof MiddlewareInterface) {
