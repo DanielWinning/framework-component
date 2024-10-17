@@ -1,6 +1,6 @@
 # Luma | Framework Component Changelog
 
-## [Unreleased]
+## [1.6.2] - 2024-10-17
 ### Added
 - Add `phpstan` for code analysis
 
