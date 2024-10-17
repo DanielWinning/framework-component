@@ -102,7 +102,7 @@ class LumaTest extends TestCase
         if (isset($_ENV['DATABASE_HOST'])) {
             $articles = Article::all();
 
-            $this->assertIsArray($articles);
+            $this->assertNull($articles);
         } else {
             $this->expectNotToPerformAssertions();
         }

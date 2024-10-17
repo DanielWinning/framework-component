@@ -6,8 +6,6 @@ use Luma\AuroraDatabase\Attributes\AuroraCollection;
 use Luma\AuroraDatabase\Attributes\Column;
 use Luma\AuroraDatabase\Attributes\Identifier;
 use Luma\AuroraDatabase\Attributes\Schema;
-use Luma\AuroraDatabase\Attributes\Table;
-use Luma\AuroraDatabase\Model\Aurora;
 use Luma\AuroraDatabase\Utils\Collection;
 use Luma\SecurityComponent\Attributes\SecurityIdentifier;
 use Luma\SecurityComponent\Authentication\AbstractUser;
