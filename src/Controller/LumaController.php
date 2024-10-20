@@ -14,8 +14,8 @@ use Tracy\Debugger;
 class LumaController
 {
     private Engine $templateEngine;
-    private static string $templateDirectory;
-    private static string $cacheDirectory;
+    protected static string $templateDirectory;
+    protected static string $cacheDirectory;
     private array $errors = [];
     private ?UserInterface $currentUser;
 
