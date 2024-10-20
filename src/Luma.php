@@ -9,7 +9,6 @@ use Luma\DependencyInjectionComponent\DependencyContainer;
 use Luma\DependencyInjectionComponent\DependencyManager;
 use Luma\DependencyInjectionComponent\Exception\NotFoundException;
 use Luma\Framework\Controller\LumaController;
-use Luma\Framework\Debug\AuthenticatedPanel;
 use Luma\Framework\Middleware\MiddlewareHandler;
 use Luma\Framework\Middleware\MiddlewareInterface;
 use Luma\HttpComponent\Request;
@@ -21,7 +20,7 @@ use Luma\SecurityComponent\Authentication\Interface\UserProviderInterface;
 use Symfony\Component\Yaml\Yaml;
 use Tracy\Debugger;
 
-class Luma
+final class Luma
 {
     private DependencyContainer $container;
     private DependencyManager $dependencyManager;
@@ -29,7 +28,7 @@ class Luma
     private string $configDirectory;
     private string $cacheDirectory;
 
-    private static array $config;
+    protected static array $config;
     public static Collection $providers;
     private MiddlewareHandler $middlewareHandler;
 
@@ -46,7 +45,7 @@ class Luma
         $this->setConfig($configDirectory);
         Debugger::enable(self::getConfigParam('app.mode') === 'production');
         Debugger::$logDirectory = sprintf('%s/log', dirname($configDirectory));
-        static::$providers = new Collection();
+        Luma::$providers = new Collection();
         LumaController::setDirectories($templateDirectory, sprintf('%s/views', $cacheDirectory));
 
         $this->load();
@@ -55,11 +54,11 @@ class Luma
     /**
      * @param Request $request
      *
-     * @return void
+     * @return Response
      *
      * @throws \ReflectionException|\Throwable
      */
-    public function run(Request $request): void
+    public function run(Request $request): Response
     {
         $response = $this->middlewareHandler->handle($request, new Response());
 
@@ -77,6 +76,8 @@ class Luma
         }
 
         $this->echoResponse($response);
+
+        return $response;
     }
 
     /**
@@ -84,7 +85,7 @@ class Luma
      */
     public static function getUserProvider(): ?UserProviderInterface
     {
-        return static::$providers->find(function ($provider) {
+        return Luma::$providers->find(function ($provider) {
             return $provider instanceof UserProviderInterface;
         });
     }
@@ -94,7 +95,7 @@ class Luma
      */
     public static function getAuthenticator(): ?AuthenticatorInterface
     {
-        return static::$providers->find(function ($provider) {
+        return Luma::$providers->find(function ($provider) {
             return $provider instanceof AuthenticatorInterface;
         });
     }
@@ -104,7 +105,7 @@ class Luma
      */
     public static function getLoggedInUser(): ?UserInterface
     {
-        $userProvider = static::getUserProvider();
+        $userProvider = Luma::getUserProvider();
 
         return $userProvider?->getUserFromSession();
     }
@@ -116,7 +117,7 @@ class Luma
      */
     public static function getConfigParam(string $parameterName): mixed
     {
-        return static::$config[$parameterName] ?? null;
+        return Luma::$config[$parameterName] ?? null;
     }
 
     /**
@@ -126,7 +127,6 @@ class Luma
      */
     private function load(): void
     {
-        Debugger::getBar()->addPanel(new AuthenticatedPanel());
         Aurora::createQueryPanel();
         $this->establishDatabaseConnection();
         $this->dependencyManager
@@ -153,7 +153,7 @@ class Luma
         $cachedConfigPath = sprintf('%s/config.php', $cachedConfigDirectory);
 
         if (file_exists($cachedConfigPath)) {
-            static::$config = require $cachedConfigPath;
+            Luma::$config = require $cachedConfigPath;
 
             return;
         }
@@ -161,19 +161,19 @@ class Luma
         $configYamlPath = sprintf('%s/%s', $this->configDirectory, 'config.yaml');
 
         if (file_exists($configYamlPath) && file_get_contents($configYamlPath) !== '') {
-            static::$config = Yaml::parseFile($configYamlPath);
+            Luma::$config = Yaml::parseFile($configYamlPath);
 
             if (!file_exists($cachedConfigDirectory)) {
                 mkdir($cachedConfigDirectory);
             }
 
-            $configPhp = sprintf('<?php return %s;', var_export(static::$config, true));
+            $configPhp = sprintf('<?php return %s;', var_export(Luma::$config, true));
             file_put_contents($cachedConfigPath, $configPhp);
 
             return;
         }
 
-        static::$config = [];
+        Luma::$config = [];
     }
 
     /**
@@ -231,7 +231,7 @@ class Luma
 
         foreach ($providers as $provider => $arguments) {
             if (class_exists($provider)) {
-                static::$providers->add(new $provider(...$arguments));
+                Luma::$providers->add(new $provider(...$arguments));
             }
         }
     }

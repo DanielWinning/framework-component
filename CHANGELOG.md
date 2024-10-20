@@ -1,5 +1,27 @@
 # Luma | Framework Component Changelog
 
+## [1.7.0] - 2024-10-20
+### Added
+- N/A
+
+### Changed
+- `Luma::run` now returns the response to allow for testing controller responses
+
+### Deprecated
+- N/A
+
+### Removed
+- Removed `AuthenticatedPanel` pending rework
+
+### Fixed
+- N/A
+
+### Security
+- Increased unit test coverage
+- Increased Stan strictness level
+
+---
+
 ## [1.6.2] - 2024-10-17
 ### Added
 - Add `phpstan` for code analysis
