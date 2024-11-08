@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "96e62e34291331f2feda768d9c475740",
+    "content-hash": "da1df91773b15689d19601b2d1985613",
     "packages": [
         {
             "name": "graham-campbell/result-type",
@@ -322,16 +322,16 @@
         },
         {
             "name": "lumax/routing-component",
-            "version": "1.6.2",
+            "version": "dev-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/DanielWinning/routing-component.git",
-                "reference": "569ee5a46b639ed7c0e0c8f4a340b88c2830cf4c"
+                "reference": "f09be3f3b21230931d01b3f3ebef707d9ce19c9b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/DanielWinning/routing-component/zipball/569ee5a46b639ed7c0e0c8f4a340b88c2830cf4c",
-                "reference": "569ee5a46b639ed7c0e0c8f4a340b88c2830cf4c",
+                "url": "https://api.github.com/repos/DanielWinning/routing-component/zipball/f09be3f3b21230931d01b3f3ebef707d9ce19c9b",
+                "reference": "f09be3f3b21230931d01b3f3ebef707d9ce19c9b",
                 "shasum": ""
             },
             "require": {
@@ -364,9 +364,9 @@
             "description": "A dynamic PHP Routing Component.",
             "support": {
                 "issues": "https://github.com/DanielWinning/routing-component/issues",
-                "source": "https://github.com/DanielWinning/routing-component/tree/1.6.2"
+                "source": "https://github.com/DanielWinning/routing-component/tree/dev"
             },
-            "time": "2024-07-15T20:48:45+00:00"
+            "time": "2024-07-15T20:32:18+00:00"
         },
         {
             "name": "lumax/security-component",
@@ -3287,6 +3287,12 @@
     ],
     "aliases": [
         {
+            "package": "lumax/routing-component",
+            "version": "dev-dev",
+            "alias": "1.6.2",
+            "alias_normalized": "1.6.2.0"
+        },
+        {
             "package": "lumax/security-component",
             "version": "dev-dev",
             "alias": "1.6.0",
@@ -3295,6 +3301,7 @@
     ],
     "minimum-stability": "stable",
     "stability-flags": {
+        "lumax/routing-component": 20,
         "lumax/security-component": 20
     },
     "prefer-stable": false,
