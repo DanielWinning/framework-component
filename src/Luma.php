@@ -76,8 +76,6 @@ final class Luma
             }
         }
 
-        $this->echoResponse($response);
-
         return $response;
     }
 
@@ -205,16 +203,6 @@ final class Luma
                 $_ENV['DATABASE_PASSWORD']
             )
         );
-    }
-
-    /**
-     * @param Response $response
-     *
-     * @return void
-     */
-    private function echoResponse(Response $response): void
-    {
-        echo $response->getBody()->getContents();
     }
 
     /**

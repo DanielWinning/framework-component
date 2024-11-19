@@ -72,9 +72,9 @@ class LumaTest extends TestCase
     public function testItRuns(array $data, string $expectedOutput): void
     {
         $request = $this->setupRequest($data['path'], $data['method']);
+        $response = $this->testClass->run($request);
 
-        $this->expectOutputString($expectedOutput);
-        $this->testClass->run($request);
+        self::assertEquals($expectedOutput, $response->getBody()->getContents());
     }
 
     /**
@@ -89,9 +89,9 @@ class LumaTest extends TestCase
     public function testItRenders(string $path): void
     {
         $request = $this->setupRequest($path, 'GET');
+        $response = $this->testClass->run($request);
 
-        $this->expectOutputString('<h1>Hello, Render Test!</h1>');
-        $this->testClass->run($request);
+        self::assertEquals('<h1>Hello, Render Test!</h1>', $response->getBody()->getContents());
     }
 
     /**

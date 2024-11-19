@@ -33,7 +33,7 @@
     "analyse": "./vendor/bin/phpstan analyse -c phpstan.neon"
   },
   "license": "GPL-3.0-or-later",
-  "version": "1.7.1",
+  "version": "1.7.2",
   "require-dev": {
     "phpunit/phpunit": "^10.4",
     "phpstan/phpstan": "^1.12"
