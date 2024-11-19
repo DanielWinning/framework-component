@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "da1df91773b15689d19601b2d1985613",
+    "content-hash": "dfec9d1af036d88f7472cf305b7e1287",
     "packages": [
         {
             "name": "graham-campbell/result-type",
@@ -240,16 +240,16 @@
         },
         {
             "name": "lumax/form-component",
-            "version": "0.1.0",
+            "version": "0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/DanielWinning/form-component.git",
-                "reference": "366c1af9243c0995b59138f762f42c1192fc1bda"
+                "reference": "f40132472aa3c099fdbf12608fac4aa71833bbbb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/DanielWinning/form-component/zipball/366c1af9243c0995b59138f762f42c1192fc1bda",
-                "reference": "366c1af9243c0995b59138f762f42c1192fc1bda",
+                "url": "https://api.github.com/repos/DanielWinning/form-component/zipball/f40132472aa3c099fdbf12608fac4aa71833bbbb",
+                "reference": "f40132472aa3c099fdbf12608fac4aa71833bbbb",
                 "shasum": ""
             },
             "require": {
@@ -271,9 +271,9 @@
             "description": "The form component for the Luma framework",
             "support": {
                 "issues": "https://github.com/DanielWinning/form-component/issues",
-                "source": "https://github.com/DanielWinning/form-component/tree/0.1.0"
+                "source": "https://github.com/DanielWinning/form-component/tree/0.2.0"
             },
-            "time": "2024-11-07T17:22:51+00:00"
+            "time": "2024-11-11T22:09:33+00:00"
         },
         {
             "name": "lumax/http-component",
@@ -322,22 +322,21 @@
         },
         {
             "name": "lumax/routing-component",
-            "version": "dev-dev",
+            "version": "1.6.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/DanielWinning/routing-component.git",
-                "reference": "46dd99fb920e90f2401d4fbf7243a102e80768ee"
+                "reference": "0429cb8c054dcc8b5c1aba5bab857e6c15f3f70b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/DanielWinning/routing-component/zipball/46dd99fb920e90f2401d4fbf7243a102e80768ee",
-                "reference": "46dd99fb920e90f2401d4fbf7243a102e80768ee",
+                "url": "https://api.github.com/repos/DanielWinning/routing-component/zipball/0429cb8c054dcc8b5c1aba5bab857e6c15f3f70b",
+                "reference": "0429cb8c054dcc8b5c1aba5bab857e6c15f3f70b",
                 "shasum": ""
             },
             "require": {
                 "lumax/framework-component": "^1.0",
                 "lumax/http-component": "^2.2",
-                "lumax/security-component": "dev-dev as 1.6.0",
                 "psr/container": "^2.0",
                 "psr/http-message": "^2.0",
                 "symfony/yaml": "^6.3"
@@ -364,27 +363,27 @@
             "description": "A dynamic PHP Routing Component.",
             "support": {
                 "issues": "https://github.com/DanielWinning/routing-component/issues",
-                "source": "https://github.com/DanielWinning/routing-component/tree/dev"
+                "source": "https://github.com/DanielWinning/routing-component/tree/1.6.3"
             },
-            "time": "2024-11-08T02:59:32+00:00"
+            "time": "2024-11-19T10:44:07+00:00"
         },
         {
             "name": "lumax/security-component",
-            "version": "dev-dev",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/DanielWinning/security-component.git",
-                "reference": "82774ea21a3e7c623c5e29f3c35cd3350b5ec7bf"
+                "reference": "615803947febf44f82aa65c3173b05a1e3019c78"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/DanielWinning/security-component/zipball/82774ea21a3e7c623c5e29f3c35cd3350b5ec7bf",
-                "reference": "82774ea21a3e7c623c5e29f3c35cd3350b5ec7bf",
+                "url": "https://api.github.com/repos/DanielWinning/security-component/zipball/615803947febf44f82aa65c3173b05a1e3019c78",
+                "reference": "615803947febf44f82aa65c3173b05a1e3019c78",
                 "shasum": ""
             },
             "require": {
                 "lumax/aurora-db": "^2.0",
-                "lumax/form-component": "^0.1.0",
+                "lumax/form-component": "^0.2.0",
                 "lumax/framework-component": "^1.6"
             },
             "require-dev": {
@@ -404,9 +403,9 @@
             "description": "The Luma security and authentication component.",
             "support": {
                 "issues": "https://github.com/DanielWinning/security-component/issues",
-                "source": "https://github.com/DanielWinning/security-component/tree/dev"
+                "source": "https://github.com/DanielWinning/security-component/tree/2.0.0"
             },
-            "time": "2024-11-08T03:06:39+00:00"
+            "time": "2024-11-19T01:35:42+00:00"
         },
         {
             "name": "phpoption/phpoption",
@@ -643,16 +642,16 @@
         },
         {
             "name": "symfony/console",
-            "version": "v7.1.7",
+            "version": "v7.1.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "3284aafcac338b6e86fd955ee4d794cbe434151a"
+                "reference": "ff04e5b5ba043d2badfb308197b9e6b42883fcd5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/3284aafcac338b6e86fd955ee4d794cbe434151a",
-                "reference": "3284aafcac338b6e86fd955ee4d794cbe434151a",
+                "url": "https://api.github.com/repos/symfony/console/zipball/ff04e5b5ba043d2badfb308197b9e6b42883fcd5",
+                "reference": "ff04e5b5ba043d2badfb308197b9e6b42883fcd5",
                 "shasum": ""
             },
             "require": {
@@ -716,7 +715,7 @@
                 "terminal"
             ],
             "support": {
-                "source": "https://github.com/symfony/console/tree/v7.1.7"
+                "source": "https://github.com/symfony/console/tree/v7.1.8"
             },
             "funding": [
                 {
@@ -732,7 +731,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-11-05T15:34:55+00:00"
+            "time": "2024-11-06T14:23:19+00:00"
         },
         {
             "name": "symfony/deprecation-contracts",
@@ -1284,16 +1283,16 @@
         },
         {
             "name": "symfony/string",
-            "version": "v7.1.6",
+            "version": "v7.1.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/string.git",
-                "reference": "61b72d66bf96c360a727ae6232df5ac83c71f626"
+                "reference": "591ebd41565f356fcd8b090fe64dbb5878f50281"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/string/zipball/61b72d66bf96c360a727ae6232df5ac83c71f626",
-                "reference": "61b72d66bf96c360a727ae6232df5ac83c71f626",
+                "url": "https://api.github.com/repos/symfony/string/zipball/591ebd41565f356fcd8b090fe64dbb5878f50281",
+                "reference": "591ebd41565f356fcd8b090fe64dbb5878f50281",
                 "shasum": ""
             },
             "require": {
@@ -1351,7 +1350,7 @@
                 "utf8"
             ],
             "support": {
-                "source": "https://github.com/symfony/string/tree/v7.1.6"
+                "source": "https://github.com/symfony/string/tree/v7.1.8"
             },
             "funding": [
                 {
@@ -1367,7 +1366,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-09-25T14:20:29+00:00"
+            "time": "2024-11-13T13:31:21+00:00"
         },
         {
             "name": "symfony/yaml",
@@ -1604,16 +1603,16 @@
     "packages-dev": [
         {
             "name": "myclabs/deep-copy",
-            "version": "1.12.0",
+            "version": "1.12.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/myclabs/DeepCopy.git",
-                "reference": "3a6b9a42cd8f8771bd4295d13e1423fa7f3d942c"
+                "reference": "123267b2c49fbf30d78a7b2d333f6be754b94845"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/3a6b9a42cd8f8771bd4295d13e1423fa7f3d942c",
-                "reference": "3a6b9a42cd8f8771bd4295d13e1423fa7f3d942c",
+                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/123267b2c49fbf30d78a7b2d333f6be754b94845",
+                "reference": "123267b2c49fbf30d78a7b2d333f6be754b94845",
                 "shasum": ""
             },
             "require": {
@@ -1652,7 +1651,7 @@
             ],
             "support": {
                 "issues": "https://github.com/myclabs/DeepCopy/issues",
-                "source": "https://github.com/myclabs/DeepCopy/tree/1.12.0"
+                "source": "https://github.com/myclabs/DeepCopy/tree/1.12.1"
             },
             "funding": [
                 {
@@ -1660,7 +1659,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-06-12T14:39:25+00:00"
+            "time": "2024-11-08T17:47:46+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -1840,16 +1839,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.12.8",
+            "version": "1.12.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "f6a60a4d66142b8156c9da923f1972657bc4748c"
+                "reference": "0d1fc20a962a91be578bcfe7cf939e6e1a2ff733"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/f6a60a4d66142b8156c9da923f1972657bc4748c",
-                "reference": "f6a60a4d66142b8156c9da923f1972657bc4748c",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/0d1fc20a962a91be578bcfe7cf939e6e1a2ff733",
+                "reference": "0d1fc20a962a91be578bcfe7cf939e6e1a2ff733",
                 "shasum": ""
             },
             "require": {
@@ -1894,7 +1893,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-11-06T19:06:49+00:00"
+            "time": "2024-11-17T14:08:01+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -3285,25 +3284,9 @@
             "time": "2024-03-03T12:36:25+00:00"
         }
     ],
-    "aliases": [
-        {
-            "package": "lumax/routing-component",
-            "version": "dev-dev",
-            "alias": "1.6.2",
-            "alias_normalized": "1.6.2.0"
-        },
-        {
-            "package": "lumax/security-component",
-            "version": "dev-dev",
-            "alias": "1.6.0",
-            "alias_normalized": "1.6.0.0"
-        }
-    ],
+    "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "lumax/routing-component": 20,
-        "lumax/security-component": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
