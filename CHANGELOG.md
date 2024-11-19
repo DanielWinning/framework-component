@@ -1,5 +1,15 @@
 # Luma | Framework Component Changelog
 
+## [1.7.1] - 2024-11-19
+### Removed
+- Removed unused assets
+
+### Security
+- Updated dependencies
+- Increase Stan level
+
+---
+
 ## [1.7.0] - 2024-10-20
 ### Added
 - N/A

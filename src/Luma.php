@@ -17,6 +17,7 @@ use Luma\RoutingComponent\Router;
 use Luma\SecurityComponent\Authentication\Interface\AuthenticatorInterface;
 use Luma\SecurityComponent\Authentication\Interface\UserInterface;
 use Luma\SecurityComponent\Authentication\Interface\UserProviderInterface;
+use Psr\Http\Message\ResponseInterface;
 use Symfony\Component\Yaml\Yaml;
 use Tracy\Debugger;
 
@@ -54,11 +55,11 @@ final class Luma
     /**
      * @param Request $request
      *
-     * @return Response
+     * @return ResponseInterface
      *
      * @throws \ReflectionException|\Throwable
      */
-    public function run(Request $request): Response
+    public function run(Request $request): ResponseInterface
     {
         $response = $this->middlewareHandler->handle($request, new Response());
 
