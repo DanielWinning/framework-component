@@ -1,6 +1,6 @@
 # Luma | Framework Component Changelog
 
-## [1.7.3] - 2024-01-27
+## [1.7.3] - 2025-01-27
 ### Changed
 - Update dependencies
 
