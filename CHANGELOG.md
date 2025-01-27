@@ -4,6 +4,9 @@
 ### Changed
 - Update dependencies
 
+### Security
+- Increase PHPStan level
+
 ---
 
 ## [1.7.2] - 2024-11-19
