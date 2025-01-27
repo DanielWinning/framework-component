@@ -176,8 +176,6 @@ final class Luma
     }
 
     /**
-     * @return void
-     *
      * @throws \Exception
      */
     private function establishDatabaseConnection(): void
@@ -205,9 +203,6 @@ final class Luma
         );
     }
 
-    /**
-     * @return void
-     */
     private function loadSecurityProviders(): void
     {
         $providersPath = sprintf('%s/security.php', $this->configDirectory);
@@ -225,9 +220,6 @@ final class Luma
         }
     }
 
-    /**
-     * @return void
-     */
     private function loadMiddleware(): void
     {
         $middlewarePath = sprintf('%s/middleware.php', $this->configDirectory);

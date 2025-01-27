@@ -1,5 +1,14 @@
 # Luma | Framework Component Changelog
 
+## [1.7.3] - 2025-01-27
+### Changed
+- Update dependencies
+
+### Security
+- Increase PHPStan level
+
+---
+
 ## [1.7.2] - 2024-11-19
 ### Changed
 - `Luma::run()` no longer echoes the response - this should now be handled by the calling code.
