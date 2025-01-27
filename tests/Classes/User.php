@@ -35,6 +35,16 @@ class User extends AbstractUser
         return $this->username;
     }
 
+    public function getEmailAddress(): string
+    {
+        return $this->emailAddress;
+    }
+
+    public function setEmailAddress(string $emailAddress): void
+    {
+        $this->emailAddress = $emailAddress;
+    }
+
     public function getPassword(): string
     {
         return $this->password;
